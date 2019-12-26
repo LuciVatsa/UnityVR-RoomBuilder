@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_section1">Top Level APIs</string>
+    <string name="title_section2">DRM</string>
+    <string name="title_section3">User Profile</string>
+    <string name="title_section4">IAP</string>
+    <string name="title_section5">IAP Subscription</string>
+    <string name="title_section6">Stats</string>
+    <string name="title_section7">Achievement</string>
+    <string name="title_section8">Subscription</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="api_init">Init</string>
+    <string name="api_shutdown">Shutdown</string>
+    <string name="api_version">Version</string>
+    <string name="api_drm">DRM</string>
+    <string name="api_user_is_ready">IsReady</string>
+    <string name="api_user_id">User Id</string>
+    <string name="api_user_name">User Name</string>
+    <string name="api_user_avatar">Avatar</string>
+    <string name="api_iap_isready">IsReady</string>
+    <string name="api_iap_request">Request</string>
+    <string name="api_iap_request_userdata">RequestWithUserData</string>
+    <string name="api_iap_purchase">Purchase</string>
+    <string name="api_iap_query">Query</string>
+    <string name="api_iap_query_purchase_list">QueryPurchaseList</string>
+    <string name="api_iap_get_balance">GetBalance</string>
+    <string name="api_iap_request_subscription">RequestSubscription</string>
+    <string name="api_iap_request_subscription_with_planid">RequestSubscriptionWithPlanID</string>
+    <string name="api_iap_subscription">Subscribe</string>
+    <string name="api_iap_query_subscription">QuerySubscription</string>
+    <string name="api_iap_cancel_subscription">CancelSubscription</string>
+    <string name="api_download_stats">Download Stats</string>
+    <string name="api_upload_stats">Upload Stats</string>
+    <string name="api_get_stat">Get Stat</string>
+    <string name="api_set_stat">Set Stat</string>
+    <string name="api_get_achi">Get Achievement</string>
+    <string name="api_set_achi">Set Achievement</string>
+    <string name="api_clear_achi">Clear Achievement</string>
+    <string name="api_get_achi_name">Get Achievement Name</string>
+    <string name="api_get_achi_description">Get Achievement Description</string>
+    <string name="api_get_achi_icon">Get Achievement icon</string>
+    <string name="api_download_ld">Download LeaderBoard</string>
+    <string name="api_download_lda">Download LeaderBoard Around User</string>
+    <string name="api_upload_ld">Upload LeaderBoard</string>
+    <string name="api_get_ld_count">Get LeaderBoard Count</string>
+    <string name="api_get_ld_score">Get LeaderBoard Score</string>
+    <string name="api_get_sort_method">Get Sort Method</string>
+    <string name="api_display_type">Get Display Type</string>
+    <string name="api_subscription_is_ready">IsReady</string>
+    <string name="api_subscription_transaction_type">Get Transaction Type</string>
+    <string name="api_subscription_is_windows_subscriber">Is Windows Subscriber?</string>
+    <string name="api_subscription_is_android_subscriber">Is Android Subscriber?</string>
+</resources>

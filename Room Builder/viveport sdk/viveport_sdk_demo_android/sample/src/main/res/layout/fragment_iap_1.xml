@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+tools:context=".IAP">
+
+<Button
+    android:id="@+id/init"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/api_init"
+    android:textAllCaps="false"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+<Button
+    android:id="@+id/is_ready"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/api_iap_isready"
+    android:textAllCaps="false"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/init"/>
+<Button
+    android:id="@+id/get_balance"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/api_iap_get_balance"
+    android:textAllCaps="false"
+    app:layout_constraintStart_toEndOf="@id/is_ready"
+    app:layout_constraintTop_toBottomOf="@id/init"/>
+<Button
+    android:id="@+id/request_subscripton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/api_iap_request_subscription"
+    android:textAllCaps="false"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/is_ready"/>
+<Button
+    android:id="@+id/request_subscription_with_planid"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/api_iap_request_subscription_with_planid"
+    android:textAllCaps="false"
+    app:layout_constraintStart_toEndOf="@id/request_subscripton"
+    app:layout_constraintTop_toTopOf="@id/request_subscripton"/>
+<Button
+    android:id="@+id/subscribe"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/api_iap_subscription"
+    android:textAllCaps="false"
+    app:layout_constraintTop_toBottomOf="@id/request_subscripton"
+    app:layout_constraintLeft_toLeftOf="parent"/>
+<Button
+    android:id="@+id/query_subscription"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/api_iap_query_subscription"
+    android:textAllCaps="false"
+    app:layout_constraintTop_toTopOf="@id/subscribe"
+    app:layout_constraintStart_toEndOf="@id/subscribe"/>
+<Button
+    android:id="@+id/cancel_subscription"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/api_iap_cancel_subscription"
+    android:textAllCaps="false"
+    app:layout_constraintStart_toEndOf="@id/query_subscription"
+    app:layout_constraintTop_toTopOf="@id/query_subscription"/>
+<Button
+    android:id="@+id/shutdown"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/api_shutdown"
+    android:textAllCaps="false"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/cancel_subscription"/>
+<include layout="@layout/log"/>
+</android.support.constraint.ConstraintLayout>
