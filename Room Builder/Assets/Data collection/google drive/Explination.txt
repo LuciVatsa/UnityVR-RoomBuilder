@@ -1,0 +1,7 @@
+Go into google forms (forms.google.com) and create a form that has a field for each event you wan to collect
+
+Click on the view form icon in the top right and then copy the URL and paste it into the googledrive script under base URL, but you must remove the "/viewform" part at the end of the url
+
+Then you can get the name tag for each field you want to populate and put those in for the form ID's under the corisponding event in the script.
+
+Then assign the grab and release events to trigger the grab and submit functions in the googleDrive script

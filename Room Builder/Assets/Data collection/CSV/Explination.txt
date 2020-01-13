@@ -1,0 +1,6 @@
+This was only partly made by me so I am a little lost on how the initial developer was trying to structure things.
+
+The CSV export pre-fab should now hold all of the recording things but I have not filled out any of the text fields or format anything for you so you will need to work on that
+
+It should be as simple as changing the track game objects list length and add whatever you want in there. This will act a lot more like a mocap system giving you data 90 times a second for every item in that list
+This can be useful but some times is more data than you would ever need and the google drive solution can be used for simplicity. 
