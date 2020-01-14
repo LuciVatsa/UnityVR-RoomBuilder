@@ -18,7 +18,7 @@ namespace Valve.VR.InteractionSystem
         public SteamVR_ActionSet activateActionSetOnAttach;
 
         [Tooltip("Hide the whole hand on attachment and show on detach")]
-        public bool hideHandOnAttach = true;
+        public bool hideHandOnAttach = false;
 
         [Tooltip("Hide the skeleton part of the hand on attachment and show on detach")]
         public bool hideSkeletonOnAttach = false;
@@ -55,7 +55,7 @@ namespace Valve.VR.InteractionSystem
         public SteamVR_Skeleton_Poser skeletonPoser;
 
         [Tooltip("Should the rendered hand lock on to and follow the object")]
-        public bool handFollowTransform= true;
+        public bool handFollowTransform= false;
 
 
         [Tooltip("Set whether or not you want this interactible to highlight when hovering over it")]
