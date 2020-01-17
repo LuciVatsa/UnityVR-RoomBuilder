@@ -7,8 +7,9 @@ public class LightSwitch : MonoBehaviour
 {
     public GameObject Light;
     private bool LightState = true;
-    private void OnCollisionEnter(Collision collision)
+    public void TurnLight()
     {
+        Debug.Log("I was here");
         if(LightState)
         {
             Light.SetActive(false);
