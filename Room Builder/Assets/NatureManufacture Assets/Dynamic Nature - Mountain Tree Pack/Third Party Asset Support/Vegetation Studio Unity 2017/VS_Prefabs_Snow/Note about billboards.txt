@@ -1,0 +1,1 @@
+For this trees please turn off billboards in vegetation studio, last lod is cross so it will reduce number of tri to very low amount.
