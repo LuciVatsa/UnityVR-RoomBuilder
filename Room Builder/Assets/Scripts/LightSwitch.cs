@@ -7,20 +7,17 @@ public class LightSwitch : MonoBehaviour
 {
     public GameObject[] Lights;
     private bool LightState = true;
-    private GameObject Fade;
-    void Start()
-    {
-        Fade = GetComponent<TurnOffLight>();
-    }
+    private GameObject Light;
     public void TurnLight()
     {
         Debug.Log("I was here");
-
         if(LightState)
         {
             foreach(GameObject light in Lights)
             {
-                light.SetActive(false);
+                Light = light.GetComponent<FadeLight>();
+                if(Light == null) {  light.SetActive(false); }
+                else { light.GetComponent<FadeLight>().SetLightState(); }
             }
             LightState = false;
         }
