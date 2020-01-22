@@ -5,31 +5,19 @@ using UnityEngine;
 
 public class LightSwitch : MonoBehaviour
 {
-    public GameObject[] Lights;
+    public GameObject Light;
     private bool LightState = true;
-    private GameObject Fade;
-    void Start()
-    {
-        Fade = GetComponent<TurnOffLight>();
-    }
     public void TurnLight()
     {
         Debug.Log("I was here");
-
         if(LightState)
         {
-            foreach(GameObject light in Lights)
-            {
-                light.SetActive(false);
-            }
+            Light.SetActive(false);
             LightState = false;
         }
         else
         {
-            foreach (GameObject light in Lights)
-            {
-                light.SetActive(true);
-            }
+            Light.SetActive(true);
             LightState = true;
         }
         
