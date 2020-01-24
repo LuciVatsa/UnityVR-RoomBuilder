@@ -1,26 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Events;
 using UnityEngine;
 
 public class LightSwitch : MonoBehaviour
 {
     public GameObject[] Lights;
     private bool LightState = true;
-    private GameObject Fade;
-    void Start()
-    {
-        Fade = GetComponent<TurnOffLight>();
-    }
+    private Component Light;
     public void TurnLight()
     {
-        Debug.Log("I was here");
-
         if(LightState)
         {
             foreach(GameObject light in Lights)
             {
-                light.SetActive(false);
+                Light = light.GetComponent<FadeLight>();
+                light.GetComponent<FadeLight>().SetFadeState(true); 
             }
             LightState = false;
         }
@@ -28,13 +22,12 @@ public class LightSwitch : MonoBehaviour
         {
             foreach (GameObject light in Lights)
             {
-                light.SetActive(true);
+                Debug.Log("Setting New Intensity to Turn On the Lights");
+                Light = light.GetComponent<FadeLight>();
+                light.GetComponent<FadeLight>().SetFadeState(false);
             }
             LightState = true;
         }
         
     }
 }
-               
-
-

@@ -5,35 +5,38 @@ using UnityEngine;
 public class FadeLight : MonoBehaviour
 {
     private bool bStartFade = false;
-    GameObject Light;
-    private void Start() {
-        Light = GetComponent<Light>();
-    }
-    // Update is called once per frame
+    public float FadeRate = 0.05f;
     void Update()
     {
         if(bStartFade)
         {
             StartCoroutine("Fade");
         } 
+        else
+        {
+            StartCoroutine("UnFade");
+        }
     }
 
-    void SetLightState()
+    public void SetFadeState(bool FadeState)
     {
-        bStartFade = true;
+        bStartFade = FadeState;
     }
 
     IEnumerator Fade()
     {
-        if(Light == null)
+        for (float ft = 1f; ft >= 0; ft -= FadeRate) 
         {
-            Debug.Log("Light Object Not Assigned");
+            gameObject.GetComponent<Light>().intensity = ft;
+            yield return null;
         }
-        for (float ft = 1f; ft >= 0; ft -= 0.05f) 
+    }
+    IEnumerator UnFade()
+    {
+        for (float ft = 0f; ft <= 1.4f; ft += FadeRate) 
         {
-            Light.intensity = ft;
+            gameObject.GetComponent<Light>().intensity = ft;
             yield return null;
         }
     }
 }
-
