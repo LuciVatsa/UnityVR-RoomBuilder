@@ -22,7 +22,6 @@ public class LightSwitch : MonoBehaviour
         {
             foreach (GameObject light in Lights)
             {
-                Debug.Log("Setting New Intensity to Turn On the Lights");
                 Light = light.GetComponent<FadeLight>();
                 light.GetComponent<FadeLight>().SetFadeState(false);
             }

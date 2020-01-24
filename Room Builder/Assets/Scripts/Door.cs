@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    public Transform Handposition;
+    Rigidbody rigidbody; 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    void MoveDoor()
     {
-        
+        rigidbody.MovePosition(Handposition.transform.position);
     }
 }
