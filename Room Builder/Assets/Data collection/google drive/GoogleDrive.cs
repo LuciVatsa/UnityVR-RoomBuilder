@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.Networking;
 
 public class GoogleDrive : MonoBehaviour
 {
@@ -35,22 +35,34 @@ public class GoogleDrive : MonoBehaviour
     {
         release_time = Time.deltaTime.ToString();
         end_location = gameObject.transform.position.ToString();
-        StartCoroutine(Post(item_name, grab_time, release_time));
+        StartCoroutine(Post(item_name, grab_time, release_time, start_location, end_location));
         Debug.Log("submit");
     }
 
     [SerializeField]
     public string BASE_URL;
-    IEnumerator Post(string name, string grab, string release)
+    IEnumerator Post(string name, string grab, string release, string start_location, string end_location)
     {
-        WWWForm form = new WWWForm();
+
+        using (StreamWriter sw = new StreamWriter("Assets/Patient_Interaction_Info.txt"))
+        {
+            sw.Write("Object Name: "); sw.WriteLine(name);
+            sw.Write("Object Start Location: "); sw.WriteLine(start_location);
+            sw.Write("Object End Location: "); sw.WriteLine(end_location);
+        }
+        /*
+            WWWForm form = new WWWForm();
 
         form.AddField(item_name_ID, name);
         form.AddField(grab_time_ID, grab);
         form.AddField(release_time_ID, release);
+        form.AddField(start_location_ID, start_location);
+        form.AddField(end_location_ID, end_location);
 
         byte[] rawData = form.data;
-        WWW www = new WWW(BASE_URL + "/formResponse", rawData);
-        yield return www;
+
+        UploadHandlerRaw raw = new UploadHandlerRaw(rawData);
+        UnityWebRequest www = new UnityWebRequest(BASE_URL + "/formResponse",  raw);*/
+        yield return null;
     }
 }
