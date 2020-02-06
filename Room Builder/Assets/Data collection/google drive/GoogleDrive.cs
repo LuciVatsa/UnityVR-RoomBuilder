@@ -6,63 +6,44 @@ using UnityEngine.Networking;
 public class GoogleDrive : MonoBehaviour
 {
 
-    [Header("Basic stats")]
-    public string item_name;
-    public string item_name_ID;
-    public string grab_time;
-    public string grab_time_ID;
-    public string release_time;
-    public string release_time_ID;
-    public string start_location;
-    public string start_location_ID;
-    public string end_location;
-    public string end_location_ID;
-
+    string item_name;
+    float grab_time;
+    float release_time;
+    Vector3 start_location;
+    Vector3 end_location;
+    
     public void Start()
     {
         item_name = gameObject.name;
-        GetComponent<Valve.VR.InteractionSystem.Throwable>().onPickUp.AddListener(grab);
-        GetComponent<Valve.VR.InteractionSystem.Throwable>().onDetachFromHand.AddListener(submit);
+        GetComponent<Valve.VR.InteractionSystem.Throwable>().onPickUp.AddListener(Grab);
+        GetComponent<Valve.VR.InteractionSystem.Throwable>().onDetachFromHand.AddListener(Submit);
     }
-    public void grab()
+    public void Grab()
     {
-        grab_time = Time.deltaTime.ToString();
-        start_location = gameObject.transform.position.ToString();
+        grab_time = Time.time;
+        start_location = gameObject.transform.position;
         Debug.Log("grab");
     }
 
-    public void submit()
+    public void Submit()
     {
-        release_time = Time.deltaTime.ToString();
-        end_location = gameObject.transform.position.ToString();
+        release_time = Time.time;
+        end_location = gameObject.transform.position;
         StartCoroutine(Post(item_name, grab_time, release_time, start_location, end_location));
         Debug.Log("submit");
     }
-
-    [SerializeField]
-    public string BASE_URL;
-    IEnumerator Post(string name, string grab, string release, string start_location, string end_location)
+    IEnumerator Post(string name, float grab_time, float release_time, Vector3 start_location, Vector3 end_location)
     {
 
-        using (StreamWriter sw = new StreamWriter("Assets/Patient_Interaction_Info.txt"))
+        using (StreamWriter sw = new StreamWriter("Assets/Patient_Interaction_Info.txt", append:true))
         {
             sw.Write("Object Name: "); sw.WriteLine(name);
             sw.Write("Object Start Location: "); sw.WriteLine(start_location);
             sw.Write("Object End Location: "); sw.WriteLine(end_location);
+            sw.Write("Distance Travelled: "); sw.WriteLine(end_location - start_location);
+            sw.Write("Grab Time: "); sw.WriteLine(release_time - grab_time);
+            sw.WriteLine("----------------------------------------------------------------");
         }
-        /*
-            WWWForm form = new WWWForm();
-
-        form.AddField(item_name_ID, name);
-        form.AddField(grab_time_ID, grab);
-        form.AddField(release_time_ID, release);
-        form.AddField(start_location_ID, start_location);
-        form.AddField(end_location_ID, end_location);
-
-        byte[] rawData = form.data;
-
-        UploadHandlerRaw raw = new UploadHandlerRaw(rawData);
-        UnityWebRequest www = new UnityWebRequest(BASE_URL + "/formResponse",  raw);*/
         yield return null;
     }
 }

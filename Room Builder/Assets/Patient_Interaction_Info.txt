@@ -1,0 +1,36 @@
+Object Name: Test Object
+Object Start Location: (2.1, 1.2, 0.8)
+Object End Location: (1.1, 1.5, -0.7)
+Distance Travelled: (-1.0, 0.2, -1.5)
+Grab Time: 8.669363
+----------------------------------------------------------------
+Object Name: Test Object
+Object Start Location: (2.1, 1.2, 0.8)
+Object End Location: (1.1, 1.5, -0.7)
+Distance Travelled: (-1.0, 0.2, -1.5)
+Grab Time: 8.669363
+----------------------------------------------------------------
+Object Name: Test Object
+Object Start Location: (1.1, 1.5, -0.5)
+Object End Location: (1.1, 1.5, 0.6)
+Distance Travelled: (0.0, 0.1, 1.1)
+Grab Time: 1.8426
+----------------------------------------------------------------
+Object Name: Test Object
+Object Start Location: (1.1, 1.5, -0.5)
+Object End Location: (1.1, 1.5, 0.6)
+Distance Travelled: (0.0, 0.1, 1.1)
+Grab Time: 1.8426
+----------------------------------------------------------------
+Object Name: Test Object
+Object Start Location: (1.3, 1.6, 0.9)
+Object End Location: (1.7, 1.9, 0.8)
+Distance Travelled: (0.4, 0.2, -0.1)
+Grab Time: 0.8649445
+----------------------------------------------------------------
+Object Name: Test Object
+Object Start Location: (1.3, 1.6, 0.9)
+Object End Location: (1.7, 1.9, 0.8)
+Distance Travelled: (0.4, 0.2, -0.1)
+Grab Time: 0.8649445
+----------------------------------------------------------------
