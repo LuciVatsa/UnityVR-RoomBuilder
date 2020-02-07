@@ -34,3 +34,15 @@ Object End Location: (1.7, 1.9, 0.8)
 Distance Travelled: (0.4, 0.2, -0.1)
 Grab Time: 0.8649445
 ----------------------------------------------------------------
+Object Name: Test Object
+Object Start Location: (2.1, 1.2, 0.9)
+Object End Location: (2.1, 1.3, 0.6)
+Distance Travelled: (0.0, 0.0, -0.3)
+Grab Time: 3.864952
+----------------------------------------------------------------
+Object Name: Test Object
+Object Start Location: (2.1, 1.2, 0.9)
+Object End Location: (2.1, 1.3, 0.6)
+Distance Travelled: (0.0, 0.0, -0.3)
+Grab Time: 3.864952
+----------------------------------------------------------------
