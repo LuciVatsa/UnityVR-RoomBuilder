@@ -2383,7 +2383,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7f56deb6e04fe764f9aec611f17f0d49, type: 2}
-  - {fileID: 2100000, guid: adb0880ce78d70c4697a8f490b7e7293, type: 2}
+  - {fileID: 2100000, guid: 50765163bce16da40a8d1b76b54e7cb7, type: 2}
   - {fileID: 2100000, guid: 384202d2cb9961548b0faf55cebef95a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -7037,6 +7037,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063017714}
   m_Mesh: {fileID: 4300034, guid: 9eaf4572bccdfcd4390314367ce4e0d8, type: 3}
+--- !u!4 &2066682189 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 234556119879580050, guid: 727b0f08ccd7987498a41453270823f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 5564477277613314990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2108235848
 GameObject:
   m_ObjectHideFlags: 0
@@ -10598,7 +10604,7 @@ Transform:
   m_LocalPosition: {x: -0.708, y: -0.066, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4839048344407911}
+  - {fileID: 2066682189}
   - {fileID: 4928193147543873}
   - {fileID: 4916013919418453}
   - {fileID: 306644141}
@@ -10944,12 +10950,6 @@ Transform:
   m_Father: {fileID: 4666359986910390}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4839048344407911 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5560203417739156681, guid: 727b0f08ccd7987498a41453270823f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 5564477277613314990}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4846765407495981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6217473919597738496, guid: b45267d288aea1a4fb99d15ac67fb1d4,
@@ -17020,6 +17020,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389204348183194050, guid: 727b0f08ccd7987498a41453270823f9,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.95142007
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389204348183194050, guid: 727b0f08ccd7987498a41453270823f9,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.94955826
+      objectReference: {fileID: 0}
+    - target: {fileID: 6389204348183194050, guid: 727b0f08ccd7987498a41453270823f9,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 727b0f08ccd7987498a41453270823f9, type: 3}
