@@ -6,15 +6,13 @@ public class LightSwitch : MonoBehaviour
 {
     public GameObject[] Lights;
     private bool LightState = true;
-    private Component Light;
     public void TurnLight()
     {
         if(LightState)
         {
             foreach(GameObject light in Lights)
             {
-                Light = light.GetComponent<FadeLight>();
-                light.GetComponent<FadeLight>().SetFadeState(true); 
+                light.GetComponent<Light>().intensity = 0;
             }
             LightState = false;
         }
@@ -22,11 +20,9 @@ public class LightSwitch : MonoBehaviour
         {
             foreach (GameObject light in Lights)
             {
-                Light = light.GetComponent<FadeLight>();
-                light.GetComponent<FadeLight>().SetFadeState(false);
+                light.GetComponent<Light>().intensity = 1;
             }
             LightState = true;
         }
-        
     }
 }
