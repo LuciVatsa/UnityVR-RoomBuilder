@@ -90,14 +90,14 @@ public class DistanceCalculator : MonoBehaviour
         {
             sb.AppendLine(string.Join(delimiter, output[index]));
         }
-        string filePath = getPath();
+        string filePath = GetPath();
         StreamWriter outStream = System.IO.File.CreateText(filePath);
         outStream.WriteLine(sb);
         outStream.Close();
         Debug.Log("Finished Writing to File");
     }
 
-    private string getPath()
+    private string GetPath()
     {
 #if UNITY_EDITOR
         return Application.dataPath + "/CSV/" + "ObjectData" + name + ".txt";
