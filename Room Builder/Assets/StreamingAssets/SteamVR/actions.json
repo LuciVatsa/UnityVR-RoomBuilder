@@ -81,6 +81,18 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/VRTesting/in/BodyCalibrate",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/VRTesting/in/DistanceTracker",
+      "type": "boolean"
+    },
+    {
+      "name": "/actions/VRTesting/in/RoomGenerate",
+      "type": "boolean"
     }
   ],
   "action_sets": [
@@ -98,6 +110,10 @@
     },
     {
       "name": "/actions/mixedreality",
+      "usage": "single"
+    },
+    {
+      "name": "/actions/VRTesting",
       "usage": "single"
     }
   ],

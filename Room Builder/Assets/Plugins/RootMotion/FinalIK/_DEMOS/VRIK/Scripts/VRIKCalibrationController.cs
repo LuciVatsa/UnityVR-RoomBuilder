@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Valve.VR;
 using RootMotion.FinalIK;
 
 namespace RootMotion.Demos
@@ -7,6 +7,17 @@ namespace RootMotion.Demos
 
     public class VRIKCalibrationController : MonoBehaviour
     {
+        // a reference to the action
+        public SteamVR_Action_Boolean Calibrate;
+
+        // a reference to the hand
+        public SteamVR_Input_Sources handType;
+
+
+        private void Start()
+        {
+            Calibrate.AddOnStateDownListener(BodyCalibrate, handType);
+        }
 
         [Tooltip("Reference to the VRIK component on the avatar.")] public VRIK ik;
         [Tooltip("The settings for VRIK calibration.")] public VRIKCalibrator.Settings settings;
@@ -17,9 +28,16 @@ namespace RootMotion.Demos
         [Tooltip("(Optional) A tracker placed anywhere on the ankle or toes of the player's left leg.")] public Transform leftFootTracker;
         [Tooltip("(Optional) A tracker placed anywhere on the ankle or toes of the player's right leg.")] public Transform rightFootTracker;
 
+
         [Header("Data stored by Calibration")]
         public VRIKCalibrator.CalibrationData data = new VRIKCalibrator.CalibrationData();
 
+        public void BodyCalibrate(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
+        {
+            // Calibrate the character, store data of the calibration
+            data = VRIKCalibrator.Calibrate(ik, settings, headTracker, bodyTracker, leftHandTracker, rightHandTracker, leftFootTracker, rightFootTracker);
+
+        }
         void LateUpdate()
         {
             if (Input.GetKeyDown(KeyCode.C))
