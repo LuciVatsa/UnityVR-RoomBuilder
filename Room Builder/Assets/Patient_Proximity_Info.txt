@@ -1,0 +1,432 @@
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.2993886
+Collision at time: 0.3
+Proximity Duration: 0.075
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3302276
+Collision at time: 0.3583333
+Proximity Duration: 0.1333333
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3420947
+Collision at time: 0.4
+Proximity Duration: 0.03333336
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3497272
+Collision at time: 0.45
+Proximity Duration: 0.08333334
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3347746
+Collision at time: 5.016667
+Proximity Duration: 0.01666641
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3347032
+Collision at time: 5.041667
+Proximity Duration: 0.04166651
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3344779
+Collision at time: 5.075
+Proximity Duration: 0.07499981
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3342566
+Collision at time: 5.083333
+Proximity Duration: 0.08333302
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3298398
+Collision at time: 5.108334
+Proximity Duration: 0.1083331
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.336051
+Collision at time: 5.291667
+Proximity Duration: 0.07499981
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3476817
+Collision at time: 5.458333
+Proximity Duration: 0.0333333
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3488841
+Collision at time: 5.466667
+Proximity Duration: 0.04166698
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3581876
+Collision at time: 5.508334
+Proximity Duration: 0.08333349
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3618145
+Collision at time: 5.525
+Proximity Duration: 0.0999999
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3618145
+Collision at time: 5.525
+Proximity Duration: 0.0999999
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.36408
+Collision at time: 5.533334
+Proximity Duration: 0.1083336
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3655579
+Collision at time: 5.541667
+Proximity Duration: 0.1166668
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3676961
+Collision at time: 5.55
+Proximity Duration: 0.125
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3727799
+Collision at time: 5.575
+Proximity Duration: 0.1500001
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3812905
+Collision at time: 5.6
+Proximity Duration: 0.1750002
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.4495094
+Collision at time: 5.766667
+Proximity Duration: 0.0583334
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3161784
+Collision at time: 6.616667
+Proximity Duration: 0.25
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3247579
+Collision at time: 6.833333
+Proximity Duration: 0.01666641
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3213648
+Collision at time: 7.158334
+Proximity Duration: 0.05000019
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3224056
+Collision at time: 7.166667
+Proximity Duration: 0.0583334
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3229852
+Collision at time: 7.208333
+Proximity Duration: 0.0999999
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3249626
+Collision at time: 7.25
+Proximity Duration: 0.1416669
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3320282
+Collision at time: 7.3
+Proximity Duration: 0.008333206
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3267556
+Collision at time: 7.325
+Proximity Duration: 0.0333333
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3230711
+Collision at time: 7.333333
+Proximity Duration: 0.04166651
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3209893
+Collision at time: 7.341667
+Proximity Duration: 0.05000019
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3197933
+Collision at time: 7.35
+Proximity Duration: 0
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3197933
+Collision at time: 7.35
+Proximity Duration: 0
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3204733
+Collision at time: 7.358334
+Proximity Duration: 0.008333206
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3204733
+Collision at time: 7.358334
+Proximity Duration: 0.008333206
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3262226
+Collision at time: 7.383334
+Proximity Duration: 0.0333333
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3282077
+Collision at time: 7.391667
+Proximity Duration: 0.04166651
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3165651
+Collision at time: 7.758334
+Proximity Duration: 0
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3125777
+Collision at time: 7.816667
+Proximity Duration: 0.04166651
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.2977426
+Collision at time: 7.966667
+Proximity Duration: 0.1166668
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3120299
+Collision at time: 8.108334
+Proximity Duration: 0.2583332
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3120299
+Collision at time: 8.108334
+Proximity Duration: 0.2583332
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3157553
+Collision at time: 8.125
+Proximity Duration: 0.2749996
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3174874
+Collision at time: 8.133334
+Proximity Duration: 0.2833338
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3310638
+Collision at time: 8.166667
+Proximity Duration: 0.3166666
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3310638
+Collision at time: 8.166667
+Proximity Duration: 0.3166666
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3344293
+Collision at time: 8.175
+Proximity Duration: 0.3249998
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3434807
+Collision at time: 8.200001
+Proximity Duration: 0.3500004
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3524134
+Collision at time: 8.216667
+Proximity Duration: 0.3666668
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3863708
+Collision at time: 8.283334
+Proximity Duration: 0.4333334
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.4056177
+Collision at time: 8.316668
+Proximity Duration: 0.4666672
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.4207415
+Collision at time: 8.341667
+Proximity Duration: 0.4916668
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3614113
+Collision at time: 8.816668
+Proximity Duration: 0.01666737
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3232013
+Collision at time: 9.133334
+Proximity Duration: 0.01666737
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3374751
+Collision at time: 9.166667
+Proximity Duration: 0.05000019
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3374751
+Collision at time: 9.166667
+Proximity Duration: 0.05000019
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3424205
+Collision at time: 9.175
+Proximity Duration: 0.0583334
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3492988
+Collision at time: 9.191668
+Proximity Duration: 0.07500076
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3610162
+Collision at time: 9.208334
+Proximity Duration: 0.09166718
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3819624
+Collision at time: 9.241667
+Proximity Duration: 0.125
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.4016778
+Collision at time: 9.275001
+Proximity Duration: 0.1583338
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.4121445
+Collision at time: 9.291667
+Proximity Duration: 0.1750002
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3194699
+Collision at time: 9.941668
+Proximity Duration: 0
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3208196
+Collision at time: 9.950001
+Proximity Duration: 0.008333206
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3311788
+Collision at time: 10.03333
+Proximity Duration: 0.07499981
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3399105
+Collision at time: 10.09167
+Proximity Duration: 0.1333332
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3475126
+Collision at time: 10.11667
+Proximity Duration: 0.008333206
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3596796
+Collision at time: 10.15
+Proximity Duration: 0.04166698
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3631349
+Collision at time: 10.15833
+Proximity Duration: 0.05000019
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.3668279
+Collision at time: 10.16667
+Proximity Duration: 0.0583334
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.4041477
+Collision at time: 10.24167
+Proximity Duration: 0.1333332
+--------------------------------------------------------------------------------
+Proximity Alert to object: Test Proximity Kit
+Body Part involved: HandColliderRight(Clone)
+Distance between objects: 0.4327028
+Collision at time: 10.29167
+Proximity Duration: 0.1833334
+--------------------------------------------------------------------------------
