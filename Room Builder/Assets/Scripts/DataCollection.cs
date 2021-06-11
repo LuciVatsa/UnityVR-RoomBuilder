@@ -5,8 +5,7 @@ using System.IO;
 
 
 public class DataCollection : MonoBehaviour
-{ 
-
+{
     private int bStartRecording;
     private List<string[]> rowData = new List<string[]>();
     
