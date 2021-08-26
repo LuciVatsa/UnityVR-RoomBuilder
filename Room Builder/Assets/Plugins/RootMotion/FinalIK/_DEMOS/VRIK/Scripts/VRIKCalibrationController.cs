@@ -42,6 +42,7 @@ namespace RootMotion.Demos
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
+                
                 // Calibrate the character, store data of the calibration
                 data = VRIKCalibrator.Calibrate(ik, settings, headTracker, bodyTracker, leftHandTracker, rightHandTracker, leftFootTracker, rightFootTracker);
             }
