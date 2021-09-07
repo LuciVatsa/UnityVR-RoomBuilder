@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
+using System.IO;
 
 public class PlayerTracker : MonoBehaviour
 {
     bool startRecord = false;
-    bool isRecording = false;
     private List<string[]> rowData = new List<string[]>();
     float preX, preY;
     double distance = 0.0f;
@@ -17,16 +18,13 @@ public class PlayerTracker : MonoBehaviour
     }
     void Save()
     {
-        string[] rowDataTemp = new string[9];
+        string[] rowDataTemp = new string[6];
         rowDataTemp[0] = "Object Name";
         rowDataTemp[1] = "Time";
         rowDataTemp[2] = "PosX";
         rowDataTemp[3] = "PosY";
         rowDataTemp[4] = "PosZ";
-        rowDataTemp[5] = "RotX";
-        rowDataTemp[6] = "RotY";
-        rowDataTemp[7] = "RotZ";
-        rowDataTemp[8] = "Distance";
+        rowDataTemp[5] = "Distance";
         rowData.Add(rowDataTemp);
     }
     // Update is called once per frame
@@ -45,6 +43,8 @@ public class PlayerTracker : MonoBehaviour
             else
             {
                 StopCoroutine(RecordPlayerData());
+                WriteToFile();
+                startRecord = false;
             }
         }
 
@@ -52,7 +52,6 @@ public class PlayerTracker : MonoBehaviour
 
     IEnumerator RecordPlayerData()
     {
-        startRecord = false;
         float x = gameObject.transform.position.x;
         float y = gameObject.transform.position.y;
         distance += Mathf.Sqrt(Mathf.Pow((x - preX), 2) + Mathf.Pow((y - preY), 2));
@@ -62,14 +61,45 @@ public class PlayerTracker : MonoBehaviour
         rowDataTemp[2] = x.ToString();
         rowDataTemp[3] = y.ToString();
         rowDataTemp[4] = gameObject.transform.position.z.ToString();
-        rowDataTemp[5] = gameObject.transform.rotation.eulerAngles.x.ToString();
-        rowDataTemp[6] = gameObject.transform.rotation.eulerAngles.y.ToString();
-        rowDataTemp[7] = gameObject.transform.rotation.eulerAngles.z.ToString();
-        rowDataTemp[8] = gameObject.transform.rotation.eulerAngles.z.ToString();
-        rowDataTemp[9] = distance.ToString();
+        rowDataTemp[5] = distance.ToString();
         preX = x;
         preY = y;
         rowData.Add(rowDataTemp);
-        yield return new WaitForSeconds(1.0f); ;
+        yield return null;
+    }
+
+    void WriteToFile()
+    {
+        Debug.Log("Writing to file Now");
+        string[][] output = new string[rowData.Count][];
+
+        for (int i = 0; i < output.Length; i++)
+        {
+            output[i] = rowData[i];
+        }
+
+        int length = output.GetLength(0);
+        string delimiter = ",";
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int index = 0; index < length; index++)
+        {
+            sb.AppendLine(string.Join(delimiter, output[index]));
+        }
+        string filePath = getPath();
+        StreamWriter outStream = System.IO.File.CreateText(filePath);
+        outStream.WriteLine(sb);
+        outStream.Close();
+        Debug.Log("Finished Writing to File");
+    }
+
+    private string getPath()
+    {
+#if UNITY_EDITOR
+        return Application.dataPath + "/CSV" + "ObjectData" + name + ".csv";
+#else
+      return Application.dataPath + "/"+"CurrentInfo.csv";
+#endif
     }
 }
