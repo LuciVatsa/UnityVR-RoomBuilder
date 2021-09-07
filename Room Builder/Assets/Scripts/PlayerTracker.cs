@@ -42,6 +42,7 @@ public class PlayerTracker : MonoBehaviour
             }
             else
             {
+                Debug.Log("stop");
                 StopCoroutine(RecordPlayerData());
                 WriteToFile();
                 startRecord = false;
@@ -52,22 +53,25 @@ public class PlayerTracker : MonoBehaviour
 
     IEnumerator RecordPlayerData()
     {
-        float x = gameObject.transform.position.x;
-        float y = gameObject.transform.position.y;
-        distance += Mathf.Sqrt(Mathf.Pow((x - preX), 2) + Mathf.Pow((y - preY), 2));
-        string[] rowDataTemp = new string[8];
-        rowDataTemp[0] = name;
-        rowDataTemp[1] = Time.time.ToString();
-        rowDataTemp[2] = x.ToString();
-        rowDataTemp[3] = y.ToString();
-        rowDataTemp[4] = gameObject.transform.position.z.ToString();
-        rowDataTemp[5] = distance.ToString();
-        preX = x;
-        preY = y;
-        rowData.Add(rowDataTemp);
-        yield return null;
+        while (true)
+        {
+            Debug.Log("0");
+            float x = gameObject.transform.position.x;
+            float y = gameObject.transform.position.y;
+            distance += Mathf.Sqrt(Mathf.Pow((x - preX), 2) + Mathf.Pow((y - preY), 2));
+            string[] rowDataTemp = new string[8];
+            rowDataTemp[0] = name;
+            rowDataTemp[1] = Time.time.ToString();
+            rowDataTemp[2] = x.ToString();
+            rowDataTemp[3] = y.ToString();
+            rowDataTemp[4] = gameObject.transform.position.z.ToString();
+            rowDataTemp[5] = distance.ToString();
+            preX = x;
+            preY = y;
+            rowData.Add(rowDataTemp);
+            yield return null;
+        }
     }
-
     void WriteToFile()
     {
         Debug.Log("Writing to file Now");
