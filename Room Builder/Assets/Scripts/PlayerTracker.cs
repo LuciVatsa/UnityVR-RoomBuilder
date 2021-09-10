@@ -8,7 +8,7 @@ public class PlayerTracker : MonoBehaviour
 {
     bool startRecord = false;
     private List<string[]> rowData = new List<string[]>();
-    float preX, preY;
+    float preX, preZ;
     double distance = 0.0f;
 
     // Start is called before the first frame update
@@ -18,13 +18,12 @@ public class PlayerTracker : MonoBehaviour
     }
     void Save()
     {
-        string[] rowDataTemp = new string[6];
+        string[] rowDataTemp = new string[5];
         rowDataTemp[0] = "Object Name";
         rowDataTemp[1] = "Time";
         rowDataTemp[2] = "PosX";
-        rowDataTemp[3] = "PosY";
-        rowDataTemp[4] = "PosZ";
-        rowDataTemp[5] = "Distance";
+        rowDataTemp[3] = "PosZ";
+        rowDataTemp[4] = "Distance";
         rowData.Add(rowDataTemp);
     }
     // Update is called once per frame
@@ -36,7 +35,7 @@ public class PlayerTracker : MonoBehaviour
             {
                 startRecord = true;
                 preX = gameObject.transform.position.x;
-                preY = gameObject.transform.position.y;
+                preZ = gameObject.transform.position.z;
                 distance = 0.0f;
                 StartCoroutine(RecordPlayerData());
             }
@@ -57,17 +56,16 @@ public class PlayerTracker : MonoBehaviour
         {
             Debug.Log("0");
             float x = gameObject.transform.position.x;
-            float y = gameObject.transform.position.y;
-            distance += Mathf.Sqrt(Mathf.Pow((x - preX), 2) + Mathf.Pow((y - preY), 2));
-            string[] rowDataTemp = new string[8];
+            float z = gameObject.transform.position.z;
+            distance += Mathf.Sqrt(Mathf.Pow((x - preX), 2) + Mathf.Pow((z - preZ), 2));
+            string[] rowDataTemp = new string[5];
             rowDataTemp[0] = name;
             rowDataTemp[1] = Time.time.ToString();
             rowDataTemp[2] = x.ToString();
-            rowDataTemp[3] = y.ToString();
-            rowDataTemp[4] = gameObject.transform.position.z.ToString();
-            rowDataTemp[5] = distance.ToString();
+            rowDataTemp[3] = z.ToString();
+            rowDataTemp[4] = distance.ToString();
             preX = x;
-            preY = y;
+            preZ = z;
             rowData.Add(rowDataTemp);
             yield return null;
         }
