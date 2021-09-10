@@ -60,7 +60,7 @@ public class ObjectPosition : MonoBehaviour
     private string getPath()
     {
 #if UNITY_EDITOR
-        return Application.dataPath + "/CSV" + "ObjectPosotion-" + name + ".csv";
+        return Application.dataPath + "/CSV" + "ObjectPosition.csv";
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
 #endif
