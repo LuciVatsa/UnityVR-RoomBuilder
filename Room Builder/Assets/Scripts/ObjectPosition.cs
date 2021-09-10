@@ -12,36 +12,17 @@ public class ObjectPosition : MonoBehaviour
         string[] rowDataTemp = new string[4];
         rowDataTemp[0] = "Object Name";
         rowDataTemp[1] = "PosX";
-        rowDataTemp[2] = "PosZ";
+        rowDataTemp[2] = "PosY";
+        rowDataTemp[3] = "PosZ";
         rowData.Add(rowDataTemp);
 
-        int children = transform.childCount;
-        for (int i = 0; i < children; ++i) {
-
-            int children_c = transform.GetChild(i).childCount;
-            Save(transform.GetChild(i).name, transform.GetChild(i).transform.localPosition.x.ToString(), transform.GetChild(i).transform.localPosition.z.ToString());
-            /*
-            for (int j = 0; i < children_c; ++i)
-            {
-                Save(transform.GetChild(i).GetChild(j).name);
-            
-            }*/
-        }
+        rowDataTemp[0] = name;
+        rowDataTemp[1] = gameObject.transform.position.x.ToString();
+        rowDataTemp[2] = gameObject.transform.position.y.ToString();
+        rowDataTemp[3] = gameObject.transform.position.z.ToString();
+        rowData.Add(rowDataTemp);
 
         WriteToFile();
-    }
-
-    void Save(string name, string x, string y)
-    {
-
-
-        string[] rowDataTemp = new string[4];
-        rowDataTemp[0] = name;
-        rowDataTemp[1] = x;
-        rowDataTemp[2] = y;
-        rowData.Add(rowDataTemp);
-
-       
     }
 
     // Update is called once per frame
@@ -79,7 +60,7 @@ public class ObjectPosition : MonoBehaviour
     private string getPath()
     {
 #if UNITY_EDITOR
-        return Application.dataPath + "/CSV" + "ObjectPosition.csv";
+        return Application.dataPath + "/CSV" + "ObjectPosotion-" + name + ".csv";
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
 #endif
