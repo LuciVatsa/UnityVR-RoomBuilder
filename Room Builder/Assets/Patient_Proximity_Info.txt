@@ -1,6 +1,0 @@
-Proximity Alert to object: Bed Frame L Mid
-Body Part involved: IV_Low
-Distance between objects: 0.5613167
-Collision at time: 79.56667
-Proximity Duration: 1.51667
---------------------------------------------------------------------------------
