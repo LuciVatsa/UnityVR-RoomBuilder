@@ -16,7 +16,7 @@ public class DataCollection : MonoBehaviour
     {
         Save();
         bStartRecording = 0;
-        StartCoroutine(Post("my name", "my time", "1", "2", "3", "4", "5", "6"));
+        //StartCoroutine(Post("my name", "my time", "1", "2", "3", "4", "5", "6"));
     }
 
     void Save()
@@ -56,6 +56,8 @@ public class DataCollection : MonoBehaviour
             rowDataTemp[6] = gameObject.transform.rotation.eulerAngles.y.ToString();
             rowDataTemp[7] = gameObject.transform.rotation.eulerAngles.z.ToString();
             rowData.Add(rowDataTemp);
+
+            StartCoroutine(Post(rowDataTemp[0], rowDataTemp[1], rowDataTemp[2], rowDataTemp[3], rowDataTemp[4], rowDataTemp[5], rowDataTemp[6], rowDataTemp[7]));
         }
         else if(bStartRecording == 2)
         {
