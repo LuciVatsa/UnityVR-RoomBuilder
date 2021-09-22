@@ -2,13 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Collections;
 public class ObjectPosition : MonoBehaviour
 {
 
     private List<string[]> rowData = new List<string[]>();
+
+    [SerializeField]
+    private string BASE_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfn_gFBb0aNqiTKOfoIBcHEExZG8y7Eb1wicrRQzM1N1ZlbnQ/formResponse";
+
+
     // Start is called before the first frame update
     void Start()
     {
+
+        StartCoroutine(Post("my name", "my time", "1", "2", "3", "4", "5", "6"));
+
         string[] rowDataTemp = new string[4];
         rowDataTemp[0] = "Object Name";
         rowDataTemp[1] = "PosX";
@@ -83,5 +92,22 @@ public class ObjectPosition : MonoBehaviour
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
 #endif
+    }
+
+    IEnumerator Post(string name, string time, string px, string py, string pz, string rx, string ry, string rz)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("entry.632009876", name);
+        form.AddField("entry.2030563574", time);
+        form.AddField("entry.927362915", px);
+        form.AddField("entry.443342963", py);
+        form.AddField("entry.2144466818", pz);
+        form.AddField("entry.960360919", rx);
+        form.AddField("entry.929895134", ry);
+        form.AddField("entry.1102053453", rz);
+
+        byte[] rawDataGoogle = form.data;
+        WWW www = new WWW(BASE_URL, rawDataGoogle);
+        yield return www;
     }
 }
