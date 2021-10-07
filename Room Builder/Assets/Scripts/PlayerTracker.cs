@@ -71,7 +71,7 @@ public class PlayerTracker : MonoBehaviour
             preZ = z;
             rowData.Add(rowDataTemp);
 
-            StartCoroutine(Post(rowData[0], rowData[1], rowData[2], rowData[3], rowData[4]));
+            StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), z.ToString(), distance.ToString()));
 
             yield return null;
         }

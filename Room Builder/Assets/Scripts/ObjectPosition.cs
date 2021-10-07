@@ -48,7 +48,7 @@ public class ObjectPosition : MonoBehaviour
         rowDataTemp[1] = x;
         rowDataTemp[2] = y;
         rowData.Add(rowDataTemp);
-        StartCoroutine(Post(rowData[0], rowData[1], rowData[2]));
+        StartCoroutine(Post(name, x, y));
 
 
 
