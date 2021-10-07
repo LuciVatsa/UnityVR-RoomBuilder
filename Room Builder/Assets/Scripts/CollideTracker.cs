@@ -9,7 +9,7 @@ public class CollideTracker : MonoBehaviour
     float startTime, endTime;
     //search "form action" in after right click and select "view page source"
     [SerializeField]
-    private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScwb_zNFMZLWFpufV5x1mm41cfcYPQM4dHPo5JaBuvXuELcUw/formResponse";
+    private string BASE_URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSewEczoXrGsfBbS_5ByJ7T6bMgo6rKQAHRPjZl6FmAM7DEpOA/formResponse";
 
 
 /*
@@ -52,10 +52,10 @@ public class CollideTracker : MonoBehaviour
     IEnumerator Post(string i_name, string i_startTime, string i_endTime, string i_totalTime)
     {
         WWWForm form = new WWWForm();
-        form.AddField("entry.1172557804", i_name);
-        form.AddField("entry.1173118163", i_startTime);
-        form.AddField("entry.343679423", i_endTime);
-        form.AddField("entry.1413142285", i_totalTime);
+        form.AddField("entry.1219406179", i_name);
+        form.AddField("entry.1375789603", i_startTime);
+        form.AddField("entry.1681171193", i_endTime);
+        form.AddField("entry.1523515611", i_totalTime);
 
         byte[] rawDataGoogle = form.data;
         WWW www = new WWW(BASE_URL, rawDataGoogle);

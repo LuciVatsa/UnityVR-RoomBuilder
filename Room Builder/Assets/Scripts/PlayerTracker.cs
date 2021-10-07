@@ -12,7 +12,7 @@ public class PlayerTracker : MonoBehaviour
     double distance = 0.0f;
 
     [SerializeField]
-    private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScV0zZv-NrzbAZZDE9ldUbeDckJzTrhgxTMRGZg5usuf5EtGg/formResponse";
+    private string BASE_URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHGDTxBF0qNXewS4Q4BSRmcuJvSxzL5OJvBiyBSZAfg4TSow/formResponse";
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +70,9 @@ public class PlayerTracker : MonoBehaviour
             preX = x;
             preZ = z;
             rowData.Add(rowDataTemp);
+
+            StartCoroutine(Post(rowData[0], rowData[1], rowData[2], rowData[3], rowData[4]));
+
             yield return null;
         }
     }
@@ -108,17 +111,14 @@ public class PlayerTracker : MonoBehaviour
 #endif
     }
 
-    IEnumerator Post(string name, string time, string px, string py, string pz, string rx, string ry, string rz)
+    IEnumerator Post(string name, string time, string px, string pz, string distance)
     {
         WWWForm form = new WWWForm();
-        form.AddField("entry.632009876", name);
-        form.AddField("entry.2030563574", time);
-        form.AddField("entry.927362915", px);
-        form.AddField("entry.443342963", py);
-        form.AddField("entry.2144466818", pz);
-        form.AddField("entry.960360919", rx);
-        form.AddField("entry.929895134", ry);
-        form.AddField("entry.1102053453", rz);
+        form.AddField("entry.801113195", name);
+        form.AddField("entry.1584820276", time);
+        form.AddField("entry.299970136", px);
+        form.AddField("entry.2112585411", pz);
+        form.AddField("entry.696155006", distance);
 
         byte[] rawDataGoogle = form.data;
         WWW www = new WWW(BASE_URL, rawDataGoogle);
