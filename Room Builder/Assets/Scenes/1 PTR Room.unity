@@ -22278,17 +22278,17 @@ PrefabInstance:
     - target: {fileID: 4685545775286180453, guid: 32ad817921f39c34d8ad5ba35a558b45,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.678
+      value: -11.655
       objectReference: {fileID: 0}
     - target: {fileID: 4685545775286180453, guid: 32ad817921f39c34d8ad5ba35a558b45,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.611
+      value: 1.322
       objectReference: {fileID: 0}
     - target: {fileID: 4685545775286180453, guid: 32ad817921f39c34d8ad5ba35a558b45,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.753
+      value: -2.729
       objectReference: {fileID: 0}
     - target: {fileID: 4685545775286180453, guid: 32ad817921f39c34d8ad5ba35a558b45,
         type: 3}
@@ -49608,7 +49608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629898242}
   m_Layer: 0
-  m_Name: Room New
+  m_Name: Alternate Ourboard Headwall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
