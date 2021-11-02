@@ -11,11 +11,11 @@ public class ObjectPosition : MonoBehaviour
     [SerializeField]
     private string BASE_URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSecfRJrXAHlYo7pNjUOmGreT-AfRZ-Qg9KMJxb87yCoTUIHow/formResponse";
 
-
+    string title;
     // Start is called before the first frame update
     void Start()
     {
-
+        title = this.ToString();
         
         string[] rowDataTemp = new string[4];
         rowDataTemp[0] = "Object Name";
@@ -27,7 +27,7 @@ public class ObjectPosition : MonoBehaviour
         for (int i = 0; i < children; ++i) {
 
             int children_c = transform.GetChild(i).childCount;
-            Save(transform.GetChild(i).name, transform.GetChild(i).transform.localPosition.x.ToString(), transform.GetChild(i).transform.localPosition.z.ToString());
+            Save("[" + title + "] " + transform.GetChild(i).name, transform.GetChild(i).transform.localPosition.x.ToString(), transform.GetChild(i).transform.localPosition.z.ToString());
             /*
             for (int j = 0; i < children_c; ++i)
             {
