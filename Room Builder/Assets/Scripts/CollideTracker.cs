@@ -30,7 +30,7 @@ public class CollideTracker : MonoBehaviour
         float totalTime = endTime - startTime;
         Debug.Log("Exit! time: " + endTime.ToString());
 
-        //StartCoroutine(Post(name, startTime.ToString(), endTime.ToString(), totalTime.ToString());
+        StartCoroutine(Post(name, startTime.ToString(), endTime.ToString(), totalTime.ToString()));
     }
 
     void OnTriggerEnter()
