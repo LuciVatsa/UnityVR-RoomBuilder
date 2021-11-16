@@ -20,7 +20,7 @@ public class CollideTracker : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         startTime = Time.time;
-        Debug.Log("Enter! time: " + startTime.ToString());
+        //Debug.Log("Enter! time: " + startTime.ToString());
     }
 
     void OnCollisionExit(Collision collision)
@@ -28,9 +28,9 @@ public class CollideTracker : MonoBehaviour
         endTime = Time.time;
 
         float totalTime = endTime - startTime;
-        Debug.Log("Exit! time: " + endTime.ToString());
-
-        StartCoroutine(Post(name, startTime.ToString(), endTime.ToString(), totalTime.ToString()));
+        //Debug.Log("Exit! time: " + endTime.ToString());
+        Debug.Log("\nName: " + name + ", Start: " +  startTime.ToString() + ", End: " +  endTime.ToString() + ", Total: " +  totalTime.ToString()+ ", Collision Object: " + collision.gameObject);
+        //StartCoroutine(Post(name, startTime.ToString(), endTime.ToString(), totalTime.ToString()));
     }
 
     void OnTriggerEnter()
