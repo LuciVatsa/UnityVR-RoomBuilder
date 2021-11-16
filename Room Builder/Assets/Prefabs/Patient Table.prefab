@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 9024513481108629989}
   - component: {fileID: 1645677402528933321}
   - component: {fileID: 7871001370760375996}
+  - component: {fileID: 2215199771271498018}
   m_Layer: 0
   m_Name: Table_2_2
   m_TagString: Untagged
@@ -92,7 +93,7 @@ MeshCollider:
   m_GameObject: {fileID: 5780629836751517494}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -200,6 +201,19 @@ MonoBehaviour:
   highlightOnHover: 1
   hideHighlight: []
   hoverPriority: 0
+--- !u!65 &2215199771271498018
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5780629836751517494}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.189188, y: 0.09, z: 0.60899246}
+  m_Center: {x: 0.47597265, y: 0.76, z: 0}
 --- !u!1 &5781321136794479598
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +226,7 @@ GameObject:
   - component: {fileID: 5784166862954456496}
   - component: {fileID: 5795712873114477770}
   - component: {fileID: 6740983860970950721}
+  - component: {fileID: 6677070158305082326}
   m_Layer: 0
   m_Name: Patient Table
   m_TagString: Untagged
@@ -297,3 +312,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6677070158305082326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781321136794479598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ceed0c588b6d804ab35ebc4beb36d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BASE_URL: https://docs.google.com/forms/u/1/d/e/1FAIpQLSewEczoXrGsfBbS_5ByJ7T6bMgo6rKQAHRPjZl6FmAM7DEpOA/formResponse
