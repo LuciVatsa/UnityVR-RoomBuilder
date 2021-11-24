@@ -1306,7 +1306,6 @@ GameObject:
   - component: {fileID: 309930185612781668}
   - component: {fileID: 295623217898644403}
   - component: {fileID: 3130132579570747127}
-  - component: {fileID: 1138038186420248617}
   - component: {fileID: 4187579012715837055}
   m_Layer: 0
   m_Name: Bed_1_2_2
@@ -1406,19 +1405,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &1138038186420248617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295623217898644402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ceed0c588b6d804ab35ebc4beb36d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BASE_URL: https://docs.google.com/forms/u/1/d/e/1FAIpQLSewEczoXrGsfBbS_5ByJ7T6bMgo6rKQAHRPjZl6FmAM7DEpOA/formResponse
 --- !u!65 &4187579012715837055
 BoxCollider:
   m_ObjectHideFlags: 0

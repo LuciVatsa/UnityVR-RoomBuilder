@@ -12,11 +12,18 @@ public class CollideTracker : MonoBehaviour
     //private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSewEczoXrGsfBbS_5ByJ7T6bMgo6rKQAHRPjZl6FmAM7DEpOA/formResponse";
     private string BASE_URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLScwb_zNFMZLWFpufV5x1mm41cfcYPQM4dHPo5JaBuvXuELcUw/formResponse";
 
-    
-/*
- * Trigger enter works, but player's hand need to add rigidbody and isTrigger need to be enable
- * Also, this scripts need to be attach to every object that can be collided
- */
+    //Valve.VR.InteractionSystem.HandCollider hand;
+
+    private void Start()
+    {
+        //hand = GetComponent<Valve.VR.InteractionSystem.HandCollider>();
+
+    }
+
+    /*
+     * Trigger enter works, but player's hand need to add rigidbody and isTrigger need to be enable
+     * Also, this scripts need to be attach to every object that can be collided
+     */
 
     void OnCollisionEnter(Collision collision)
     {
@@ -29,9 +36,22 @@ public class CollideTracker : MonoBehaviour
         endTime = Time.time;
 
         float totalTime = endTime - startTime;
-        //Debug.Log("Exit! time: " + endTime.ToString());
+
+        ContactPoint[] contacts = new ContactPoint[10];
+
+        // Get the contact points for this collision
+        int numContacts = collision.GetContacts(contacts);
+
+        // Iterate through each contact point
+        for (int i = 0; i < numContacts; i++)
+        {
+            Debug.Log("other: " + contacts[i].otherCollider.name + ", this: " + contacts[i].thisCollider.name);
+        }
+
+        //Debug.Log("other: " + collision.GetContact(0).otherCollider.name + ", this: " + collision.GetContact(0).thisCollider.name);
+       
         Debug.Log("\nName: " + name + ", Start: " +  startTime.ToString() + ", End: " +  endTime.ToString() + ", Total: " +  totalTime.ToString()+ ", Collision Object: " + collision.gameObject);
-        StartCoroutine(Post(collision.gameObject.ToString(), name, startTime.ToString(), endTime.ToString(), totalTime.ToString()));
+        //StartCoroutine(Post(collision.gameObject.ToString(), name, startTime.ToString(), endTime.ToString(), totalTime.ToString()));
     }
 
     /*
