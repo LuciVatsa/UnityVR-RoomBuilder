@@ -6,6 +6,13 @@ using System.Collections;
 
 public class CollideTracker : MonoBehaviour
 {
+    enum Finger { Sphere, Sphere1, Sphere2, Sphere3, thumb_distal, finger_index_2_r, finger_index_1_r, finger_index_0_r, finger_middle_2_r, finger_middle_1_r, finger_middle_0_r, finger_ring_2_r, finger_ring_1_r, finger_pinky_2_r, finger_pinky_1_r };
+
+    //List<HandData> handDatasTmp = new List<HandData>();
+    List<HandData> handDatasResults = new List<HandData>();
+
+    HandData[] handDatasTmp = new HandData[15];
+
     float startTime, endTime;
     /*search "form action" in after right click and select "view page source"*/
     //[SerializeField]
@@ -29,6 +36,77 @@ public class CollideTracker : MonoBehaviour
     {
         startTime = Time.time;
         //Debug.Log("Enter! time: " + startTime.ToString());
+        Collider myCollider = collision.contacts[0].thisCollider;
+
+        int indexNum;
+        switch (myCollider.name)
+        {
+            case "Sphere":
+                indexNum = 0;
+                break;
+            case "Sphere (1)":
+                indexNum = 1;
+                break;
+            case "Sphere (2)":
+                indexNum = 2;
+                break;
+            case "Sphere (3)":
+                indexNum = 3;
+                break;
+            case "thumb_distal":
+                indexNum = 4;
+                break;
+            case "finger_index_2_r":
+                indexNum = 5;
+                break;
+            case "finger_index_1_r":
+                indexNum = 6;
+                break;
+            case "finger_index_0_r":
+                indexNum = 7;
+                break;
+            case "finger_middle_2_r":
+                indexNum = 8;
+                break;
+            case "finger_middle_1_r":
+                indexNum = 9;
+                break;
+            case "Spherefinger_middle_0_r":
+                indexNum = 10;
+                break;
+            case "finger_ring_2_r":
+                indexNum = 11;
+                break;
+            case "finger_ring_1_r":
+                indexNum = 12;
+                break;
+            case "finger_pinky_2_r":
+                indexNum = 13;
+                break;
+            case "finger_pinky_1_r":
+                indexNum = 14;
+                break;
+            default:
+                indexNum = 15;
+                break;
+        }
+
+        if (indexNum == 15) return;
+
+        if (handDatasTmp[indexNum].hasValue)
+        {
+            handDatasResults.Add(handDatasTmp[indexNum]);
+            handDatasTmp[indexNum].hasValue = false;
+        }
+
+        handDatasTmp[indexNum].startTime = startTime;
+
+        Debug.Log("Start Name of collider: " + myCollider.name);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        
     }
 
     void OnCollisionExit(Collision collision)
@@ -41,7 +119,10 @@ public class CollideTracker : MonoBehaviour
 
         // Get the contact points for this collision
         int numContacts = collision.GetContacts(contacts);
-
+        /*
+        Collider myCollider = collision.contacts[0].thisCollider;
+        Debug.Log("Name of collider: " + myCollider.name);
+        */
         // Iterate through each contact point
         for (int i = 0; i < numContacts; i++)
         {
@@ -92,4 +173,13 @@ public class CollideTracker : MonoBehaviour
         WWW www = new WWW(BASE_URL, rawDataGoogle);
         yield return www;
     }
+
+    struct HandData
+    {
+        public bool hasValue;
+        public Finger finger;
+        public float startTime;
+        public float totalTime;
+    }
 }
+
