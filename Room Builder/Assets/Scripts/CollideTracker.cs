@@ -31,11 +31,94 @@ public class CollideTracker : MonoBehaviour
      * Trigger enter works, but player's hand need to add rigidbody and isTrigger need to be enable
      * Also, this scripts need to be attach to every object that can be collided
      */
+    private void Update()
+    {
+        if (Input.GetKeyDown("s"))
+        {
+            Debug.Log("Writing to File");
+
+            foreach(var handData in handDatasTmp)
+            {
+                if (handData.hasValue)
+                {
+                    handDatasResults.Add(handData);
+                }
+            }
+
+            foreach(var handData in handDatasResults)
+            {
+                Debug.Log("name:" + handData.name + ", collide object:" + handData.collideObject + ", start time:" + handData.startTime + ", total time: " + handData.totalTime);
+            }
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
         startTime = Time.time;
         //Debug.Log("Enter! time: " + startTime.ToString());
+
+        int indexNum = FindIndex(collision);
+        if (indexNum == 15) return;
+
+        HandData handData = handDatasTmp[indexNum];
+
+        if (handData.hasValue)
+        {
+            handDatasResults.Add(handData);
+            handData.hasValue = false;
+        }
+
+        Finger f = (Finger)indexNum;
+
+        handData.name = f.ToString();
+        handData.collideObject = collision.gameObject.ToString();
+        handData.startTime = startTime;
+
+        //Debug.Log("Start Name of collider: " + myCollider.name);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        int indexNum = FindIndex(collision);
+
+        float currentTime = Time.time;
+        float startTime = handDatasTmp[indexNum].startTime;
+
+        handDatasTmp[indexNum].totalTime = currentTime - startTime;
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+
+        return;
+
+        endTime = Time.time;
+
+        float totalTime = endTime - startTime;
+
+        ContactPoint[] contacts = new ContactPoint[10];
+
+        // Get the contact points for this collision
+        int numContacts = collision.GetContacts(contacts);
+        /*
+        Collider myCollider = collision.contacts[0].thisCollider;
+        Debug.Log("Name of collider: " + myCollider.name);
+        */
+        // Iterate through each contact point
+        for (int i = 0; i < numContacts; i++)
+        {
+            Debug.Log("other: " + contacts[i].otherCollider.name + ", this: " + contacts[i].thisCollider.name);
+        }
+
+        //Debug.Log("other: " + collision.GetContact(0).otherCollider.name + ", this: " + collision.GetContact(0).thisCollider.name);
+       
+        Debug.Log("\nName: " + name + ", Start: " +  startTime.ToString() + ", End: " +  endTime.ToString() + ", Total: " +  totalTime.ToString()+ ", Collision Object: " + collision.gameObject);
+        //StartCoroutine(Post(collision.gameObject.ToString(), name, startTime.ToString(), endTime.ToString(), totalTime.ToString()));
+    }
+
+
+    int FindIndex(Collision collision)
+    {
         Collider myCollider = collision.contacts[0].thisCollider;
 
         int indexNum;
@@ -91,50 +174,8 @@ public class CollideTracker : MonoBehaviour
                 break;
         }
 
-        if (indexNum == 15) return;
-
-        if (handDatasTmp[indexNum].hasValue)
-        {
-            handDatasResults.Add(handDatasTmp[indexNum]);
-            handDatasTmp[indexNum].hasValue = false;
-        }
-
-        handDatasTmp[indexNum].startTime = startTime;
-
-        Debug.Log("Start Name of collider: " + myCollider.name);
+        return indexNum;
     }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        endTime = Time.time;
-
-        float totalTime = endTime - startTime;
-
-        ContactPoint[] contacts = new ContactPoint[10];
-
-        // Get the contact points for this collision
-        int numContacts = collision.GetContacts(contacts);
-        /*
-        Collider myCollider = collision.contacts[0].thisCollider;
-        Debug.Log("Name of collider: " + myCollider.name);
-        */
-        // Iterate through each contact point
-        for (int i = 0; i < numContacts; i++)
-        {
-            Debug.Log("other: " + contacts[i].otherCollider.name + ", this: " + contacts[i].thisCollider.name);
-        }
-
-        //Debug.Log("other: " + collision.GetContact(0).otherCollider.name + ", this: " + collision.GetContact(0).thisCollider.name);
-       
-        Debug.Log("\nName: " + name + ", Start: " +  startTime.ToString() + ", End: " +  endTime.ToString() + ", Total: " +  totalTime.ToString()+ ", Collision Object: " + collision.gameObject);
-        //StartCoroutine(Post(collision.gameObject.ToString(), name, startTime.ToString(), endTime.ToString(), totalTime.ToString()));
-    }
-
     /*
     void OnTriggerEnter()
     {
@@ -176,6 +217,8 @@ public class CollideTracker : MonoBehaviour
 
     struct HandData
     {
+        public string name;
+        public string collideObject;
         public bool hasValue;
         public Finger finger;
         public float startTime;
