@@ -6,12 +6,30 @@ using System.Collections;
 
 public class CollideTracker : MonoBehaviour
 {
+    public string handLorR;
     enum Finger { Sphere, Sphere1, Sphere2, Sphere3, thumb_distal, finger_index_2_r, finger_index_1_r, finger_index_0_r, finger_middle_2_r, finger_middle_1_r, finger_middle_0_r, finger_ring_2_r, finger_ring_1_r, finger_pinky_2_r, finger_pinky_1_r };
 
     //List<HandData> handDatasTmp = new List<HandData>();
     List<HandData> handDatasResults = new List<HandData>();
 
-    HandData[] handDatasTmp = new HandData[15];
+    HandData[] handDatasTmp = new HandData[]
+    {
+        new HandData { hasValue = false, finger = Finger.Sphere, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.Sphere1, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.Sphere2, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.Sphere3, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.thumb_distal, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.finger_index_2_r, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.finger_index_1_r, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.finger_index_0_r, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.finger_middle_2_r, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.finger_middle_1_r, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.finger_middle_0_r, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.finger_pinky_2_r, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.finger_pinky_1_r, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.finger_ring_2_r, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f},
+        new HandData { hasValue = false, finger = Finger.finger_ring_1_r, name = "", startTime = 0.0f, collideObject = "", totalTime = 0.0f}
+    };
 
     float startTime, endTime;
     /*search "form action" in after right click and select "view page source"*/
@@ -23,8 +41,7 @@ public class CollideTracker : MonoBehaviour
 
     private void Start()
     {
-        //hand = GetComponent<Valve.VR.InteractionSystem.HandCollider>();
-
+        
     }
 
     /*
@@ -35,7 +52,7 @@ public class CollideTracker : MonoBehaviour
     {
         if (Input.GetKeyDown("s"))
         {
-            Debug.Log("Writing to File");
+            Debug.Log("Press S : Writing to File");
 
             foreach(var handData in handDatasTmp)
             {
@@ -47,7 +64,12 @@ public class CollideTracker : MonoBehaviour
 
             foreach(var handData in handDatasResults)
             {
-                Debug.Log("name:" + handData.name + ", collide object:" + handData.collideObject + ", start time:" + handData.startTime + ", total time: " + handData.totalTime);
+                if(handData.totalTime != 0.0f)
+                {
+                    StartCoroutine(Post(handData.name, handData.collideObject, handData.startTime.ToString(), (handData.startTime + handData.totalTime).ToString(), handData.totalTime.ToString()));
+                    Debug.Log("name:" + handData.name + ", collide object:" + handData.collideObject + ", start time:" + handData.startTime + ", total time: " + handData.totalTime);
+                }
+                    
             }
         }
     }
@@ -58,28 +80,37 @@ public class CollideTracker : MonoBehaviour
         //Debug.Log("Enter! time: " + startTime.ToString());
 
         int indexNum = FindIndex(collision);
+        Debug.Log("index number: " + indexNum);
         if (indexNum == 15) return;
 
         HandData handData = handDatasTmp[indexNum];
 
         if (handData.hasValue)
         {
-            handDatasResults.Add(handData);
-            handData.hasValue = false;
+            if(handData.collideObject != "HandColliderLaft(Clone)" && handData.collideObject != "Plane")
+                handDatasResults.Add(handData);
         }
+
+
+        handData.hasValue = true;
 
         Finger f = (Finger)indexNum;
 
-        handData.name = f.ToString();
+        handData.name = handLorR + ": " + f.ToString();
         handData.collideObject = collision.gameObject.ToString();
         handData.startTime = startTime;
+
+        handDatasTmp[indexNum] = handData;
 
         //Debug.Log("Start Name of collider: " + myCollider.name);
     }
 
     private void OnCollisionStay(Collision collision)
     {
+        
         int indexNum = FindIndex(collision);
+        Debug.Log("Index num: " + indexNum +" Stay");
+        if (indexNum == 15) return;
 
         float currentTime = Time.time;
         float startTime = handDatasTmp[indexNum].startTime;
@@ -122,6 +153,8 @@ public class CollideTracker : MonoBehaviour
         Collider myCollider = collision.contacts[0].thisCollider;
 
         int indexNum;
+
+        Debug.Log("myCollider name:" + myCollider.name);
         switch (myCollider.name)
         {
             case "Sphere":
