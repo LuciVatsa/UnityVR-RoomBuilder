@@ -8,6 +8,7 @@ public class CollideTracker : MonoBehaviour
 {
     public string handLorR;
     enum Finger { Sphere, Sphere1, Sphere2, Sphere3, thumb_distal, finger_index_2_r, finger_index_1_r, finger_index_0_r, finger_middle_2_r, finger_middle_1_r, finger_middle_0_r, finger_ring_2_r, finger_ring_1_r, finger_pinky_2_r, finger_pinky_1_r };
+    float elapsed = 0f;
 
     //List<HandData> handDatasTmp = new List<HandData>();
     List<HandData> handDatasResults = new List<HandData>();
@@ -48,8 +49,10 @@ public class CollideTracker : MonoBehaviour
      * Trigger enter works, but player's hand need to add rigidbody and isTrigger need to be enable
      * Also, this scripts need to be attach to every object that can be collided
      */
+    /*
     private void Update()
     {
+        
         if (Input.GetKeyDown("s"))
         {
             Debug.Log("Press S : Writing to File");
@@ -72,6 +75,50 @@ public class CollideTracker : MonoBehaviour
                     
             }
         }
+
+        elapsed += Time.deltaTime;
+        if (elapsed >= 5f)
+        {
+            elapsed = elapsed % 5f;
+            UpdateData();
+        }
+    }
+        */
+    void OnApplicationQuit()
+    {
+        Debug.Log("Application ending after " + Time.time + " seconds");
+        foreach (var handData in handDatasTmp)
+        {
+            if (handData.hasValue)
+            {
+                handDatasResults.Add(handData);
+            }
+        }
+
+        foreach (var handData in handDatasResults)
+        {
+            if (handData.totalTime != 0.0f)
+            {
+                StartCoroutine(Post(handData.name, handData.collideObject, handData.startTime.ToString(), (handData.startTime + handData.totalTime).ToString(), handData.totalTime.ToString()));
+                Debug.Log("name:" + handData.name + ", collide object:" + handData.collideObject + ", start time:" + handData.startTime + ", total time: " + handData.totalTime);
+                
+            }
+
+        }
+    }
+
+    void UpdateData()
+    {
+        foreach (var handData in handDatasResults)
+        {
+            if (handData.totalTime != 0.0f)
+            {
+                StartCoroutine(Post(handData.name, handData.collideObject, handData.startTime.ToString(), (handData.startTime + handData.totalTime).ToString(), handData.totalTime.ToString()));
+                Debug.Log("name:" + handData.name + ", collide object:" + handData.collideObject + ", start time:" + handData.startTime + ", total time: " + handData.totalTime);
+                handDatasResults.Remove(handData);
+            }
+
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -80,15 +127,23 @@ public class CollideTracker : MonoBehaviour
         //Debug.Log("Enter! time: " + startTime.ToString());
 
         int indexNum = FindIndex(collision);
-        Debug.Log("index number: " + indexNum);
+        //Debug.Log("index number: " + indexNum);
         if (indexNum == 15) return;
 
         HandData handData = handDatasTmp[indexNum];
 
         if (handData.hasValue)
         {
-            if(handData.collideObject != "HandColliderLaft(Clone)" && handData.collideObject != "Plane")
-                handDatasResults.Add(handData);
+            Debug.Log("contact name ------------------------ " + handData.collideObject);
+            Debug.Log("contain Plane? ------------------------ " + handData.collideObject.Contains("Plane"));
+
+            if (!handData.collideObject.Contains("HandCollider") && !handData.collideObject.Contains("Plane"))
+            {
+                //handDatasResults.Add(handData);
+                StartCoroutine(Post(handData.name, handData.collideObject, handData.startTime.ToString(), (handData.startTime + handData.totalTime).ToString(), handData.totalTime.ToString()));
+
+            }
+            
         }
 
 
@@ -109,7 +164,7 @@ public class CollideTracker : MonoBehaviour
     {
         
         int indexNum = FindIndex(collision);
-        Debug.Log("Index num: " + indexNum +" Stay");
+        //Debug.Log("Index num: " + indexNum +" Stay");
         if (indexNum == 15) return;
 
         float currentTime = Time.time;
@@ -117,7 +172,7 @@ public class CollideTracker : MonoBehaviour
 
         handDatasTmp[indexNum].totalTime = currentTime - startTime;
     }
-
+    /*
     void OnCollisionExit(Collision collision)
     {
 
@@ -131,10 +186,7 @@ public class CollideTracker : MonoBehaviour
 
         // Get the contact points for this collision
         int numContacts = collision.GetContacts(contacts);
-        /*
-        Collider myCollider = collision.contacts[0].thisCollider;
-        Debug.Log("Name of collider: " + myCollider.name);
-        */
+        
         // Iterate through each contact point
         for (int i = 0; i < numContacts; i++)
         {
@@ -145,7 +197,7 @@ public class CollideTracker : MonoBehaviour
        
         Debug.Log("\nName: " + name + ", Start: " +  startTime.ToString() + ", End: " +  endTime.ToString() + ", Total: " +  totalTime.ToString()+ ", Collision Object: " + collision.gameObject);
         //StartCoroutine(Post(collision.gameObject.ToString(), name, startTime.ToString(), endTime.ToString(), totalTime.ToString()));
-    }
+    }*/
 
 
     int FindIndex(Collision collision)
@@ -154,7 +206,7 @@ public class CollideTracker : MonoBehaviour
 
         int indexNum;
 
-        Debug.Log("myCollider name:" + myCollider.name);
+        //Debug.Log("myCollider name:" + myCollider.name);
         switch (myCollider.name)
         {
             case "Sphere":
