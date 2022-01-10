@@ -8,8 +8,8 @@ public class ObjectPosition : MonoBehaviour
 
     private List<string[]> rowData = new List<string[]>();
 
-    [SerializeField]
-    private string BASE_URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSecfRJrXAHlYo7pNjUOmGreT-AfRZ-Qg9KMJxb87yCoTUIHow/formResponse";
+    //[SerializeField]
+    private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSckeScN9oBB87ntLwAq31_CRvH70n2IhGAFad11Yq1K9liJ-A/formResponse";
 
     string title;
     // Start is called before the first frame update
@@ -98,9 +98,9 @@ public class ObjectPosition : MonoBehaviour
     IEnumerator Post(string name, string px, string pz)
     {
         WWWForm form = new WWWForm();
-        form.AddField("entry.1972476854", name);
-        form.AddField("entry.14134886", px);
-        form.AddField("entry.1995358365", pz);
+        form.AddField("entry.329330472", name);
+        form.AddField("entry.664238963", px);
+        form.AddField("entry.658431416", pz);
 
         byte[] rawDataGoogle = form.data;
         WWW www = new WWW(BASE_URL, rawDataGoogle);

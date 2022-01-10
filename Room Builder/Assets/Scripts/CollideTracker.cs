@@ -100,7 +100,7 @@ public class CollideTracker : MonoBehaviour
             if (handData.totalTime != 0.0f)
             {
                 StartCoroutine(Post(handData.name, handData.collideObject, handData.startTime.ToString(), (handData.startTime + handData.totalTime).ToString(), handData.totalTime.ToString()));
-                Debug.Log("name:" + handData.name + ", collide object:" + handData.collideObject + ", start time:" + handData.startTime + ", total time: " + handData.totalTime);
+                //Debug.Log("name:" + handData.name + ", collide object:" + handData.collideObject + ", start time:" + handData.startTime + ", total time: " + handData.totalTime);
                 
             }
 
@@ -134,10 +134,10 @@ public class CollideTracker : MonoBehaviour
 
         if (handData.hasValue)
         {
-            Debug.Log("contact name ------------------------ " + handData.collideObject);
-            Debug.Log("contain Plane? ------------------------ " + handData.collideObject.Contains("Plane"));
+            //Debug.Log("contact name ------------------------ " + handData.collideObject);
+            //Debug.Log("contain Plane? ------------------------ " + handData.collideObject.Contains("Plane"));
 
-            if (!handData.collideObject.Contains("HandCollider") && !handData.collideObject.Contains("Plane"))
+            if (!handData.collideObject.Contains("Collider") && !handData.collideObject.Contains("Plane"))
             {
                 //handDatasResults.Add(handData);
                 StartCoroutine(Post(handData.name, handData.collideObject, handData.startTime.ToString(), (handData.startTime + handData.totalTime).ToString(), handData.totalTime.ToString()));

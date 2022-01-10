@@ -10,14 +10,21 @@ public class PlayerTracker : MonoBehaviour
     private List<string[]> rowData = new List<string[]>();
     float preX, preZ;
     double distance = 0.0f;
+    public GameObject playerParent;
+    float parentX, parentZ;
 
-    [SerializeField]
-    private string BASE_URL = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdHGDTxBF0qNXewS4Q4BSRmcuJvSxzL5OJvBiyBSZAfg4TSow/formResponse";
+    private float nextActionTime = 0.0f;
+    private float period = 0.5f;
+
+    //[SerializeField]
+    private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScV0zZv-NrzbAZZDE9ldUbeDckJzTrhgxTMRGZg5usuf5EtGg/formResponse";
 
     // Start is called before the first frame update
     void Start()
     {
         Save();
+        parentX = playerParent.transform.localPosition.x;
+        parentZ = playerParent.transform.localPosition.z;
     }
     void Save()
     {
@@ -32,13 +39,25 @@ public class PlayerTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.time > nextActionTime)
+        {
+            nextActionTime += period;
+            float x = gameObject.transform.localPosition.x + parentX;
+            float z = gameObject.transform.localPosition.z + parentZ;
+            StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), z.ToString(), distance.ToString()));
+            //Debug.Log("POS: (" + x.ToString() + " , " + z.ToString() + " )");
+            // execute block of code here
+        }
+
+        
+        /*
         if (Input.GetKeyDown("p"))
         {
             if (!startRecord)
             {
                 startRecord = true;
-                preX = gameObject.transform.position.x;
-                preZ = gameObject.transform.position.z;
+                preX = gameObject.transform.localPosition.x;
+                preZ = gameObject.transform.localPosition.z;
                 distance = 0.0f;
                 StartCoroutine(RecordPlayerData());
             }
@@ -49,7 +68,7 @@ public class PlayerTracker : MonoBehaviour
                 WriteToFile();
                 startRecord = false;
             }
-        }
+        }*/
 
     }
 
@@ -57,19 +76,20 @@ public class PlayerTracker : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("0");
-            float x = gameObject.transform.position.x;
-            float z = gameObject.transform.position.z;
+            //Debug.Log("0");
+            float x = gameObject.transform.localPosition.x;
+            float z = gameObject.transform.localPosition.z;
             distance += Mathf.Sqrt(Mathf.Pow((x - preX), 2) + Mathf.Pow((z - preZ), 2));
+            /*
             string[] rowDataTemp = new string[5];
             rowDataTemp[0] = name;
             rowDataTemp[1] = Time.time.ToString();
             rowDataTemp[2] = x.ToString();
             rowDataTemp[3] = z.ToString();
-            rowDataTemp[4] = distance.ToString();
+            rowDataTemp[4] = distance.ToString();*/
             preX = x;
             preZ = z;
-            rowData.Add(rowDataTemp);
+            //rowData.Add(rowDataTemp);
 
             StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), z.ToString(), distance.ToString()));
 
@@ -114,11 +134,11 @@ public class PlayerTracker : MonoBehaviour
     IEnumerator Post(string name, string time, string px, string pz, string distance)
     {
         WWWForm form = new WWWForm();
-        form.AddField("entry.801113195", name);
-        form.AddField("entry.1584820276", time);
-        form.AddField("entry.299970136", px);
-        form.AddField("entry.2112585411", pz);
-        form.AddField("entry.696155006", distance);
+        form.AddField("entry.494714337", name);
+        form.AddField("entry.1661933848", time);
+        form.AddField("entry.262891016", px);
+        form.AddField("entry.254378415", pz);
+        form.AddField("entry.1716180825", distance);
 
         byte[] rawDataGoogle = form.data;
         WWW www = new WWW(BASE_URL, rawDataGoogle);
