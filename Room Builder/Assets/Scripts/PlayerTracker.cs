@@ -11,19 +11,20 @@ public class PlayerTracker : MonoBehaviour
     float preX, preZ;
     double distance = 0.0f;
     public GameObject playerParent;
-    float parentX, parentZ;
+    float parentX, parentY, parentZ;
 
     private float nextActionTime = 0.0f;
     private float period = 0.5f;
 
-    //[SerializeField]
+    /*search "form action" in after right click and select "view page source"*/
     private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScV0zZv-NrzbAZZDE9ldUbeDckJzTrhgxTMRGZg5usuf5EtGg/formResponse";
 
     // Start is called before the first frame update
     void Start()
     {
-        Save();
+        //Save();
         parentX = playerParent.transform.localPosition.x;
+        parentY = playerParent.transform.localPosition.y;
         parentZ = playerParent.transform.localPosition.z;
     }
     void Save()
@@ -43,8 +44,9 @@ public class PlayerTracker : MonoBehaviour
         {
             nextActionTime += period;
             float x = gameObject.transform.localPosition.x + parentX;
+            float y = gameObject.transform.localPosition.y + parentY;
             float z = gameObject.transform.localPosition.z + parentZ;
-            StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), z.ToString(), distance.ToString()));
+            StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString(), distance.ToString()));
             //Debug.Log("POS: (" + x.ToString() + " , " + z.ToString() + " )");
             // execute block of code here
         }
@@ -71,7 +73,7 @@ public class PlayerTracker : MonoBehaviour
         }*/
 
     }
-
+    /*
     IEnumerator RecordPlayerData()
     {
         while (true)
@@ -80,22 +82,22 @@ public class PlayerTracker : MonoBehaviour
             float x = gameObject.transform.localPosition.x;
             float z = gameObject.transform.localPosition.z;
             distance += Mathf.Sqrt(Mathf.Pow((x - preX), 2) + Mathf.Pow((z - preZ), 2));
-            /*
+            
             string[] rowDataTemp = new string[5];
             rowDataTemp[0] = name;
             rowDataTemp[1] = Time.time.ToString();
             rowDataTemp[2] = x.ToString();
             rowDataTemp[3] = z.ToString();
-            rowDataTemp[4] = distance.ToString();*/
+            rowDataTemp[4] = distance.ToString();
             preX = x;
             preZ = z;
             //rowData.Add(rowDataTemp);
 
-            StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), z.ToString(), distance.ToString()));
+            StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString()));
 
             yield return null;
         }
-    }
+    }*/
     void WriteToFile()
     {
         Debug.Log("Writing to file Now");
@@ -131,14 +133,14 @@ public class PlayerTracker : MonoBehaviour
 #endif
     }
 
-    IEnumerator Post(string name, string time, string px, string pz, string distance)
+    IEnumerator Post(string name, string time, string px, string py, string pz, string distance)
     {
         WWWForm form = new WWWForm();
         form.AddField("entry.494714337", name);
         form.AddField("entry.1661933848", time);
         form.AddField("entry.262891016", px);
-        form.AddField("entry.254378415", pz);
-        form.AddField("entry.1716180825", distance);
+        form.AddField("entry.254378415", py);
+        form.AddField("entry.1716180825", pz);
 
         byte[] rawDataGoogle = form.data;
         WWW www = new WWW(BASE_URL, rawDataGoogle);
