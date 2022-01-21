@@ -137,7 +137,7 @@ public class CollideTracker : MonoBehaviour
             //Debug.Log("contact name ------------------------ " + handData.collideObject);
             //Debug.Log("contain Plane? ------------------------ " + handData.collideObject.Contains("Plane"));
 
-            if (!handData.collideObject.Contains("Collider") && !handData.collideObject.Contains("Plane"))
+            if (!handData.collideObject.Contains("Collider") && !handData.collideObject.Contains("Plane") && !handData.collideObject.Contains("Wall"))
             {
                 //handDatasResults.Add(handData);
                 StartCoroutine(Post(handData.name, handData.collideObject, handData.startTime.ToString(), (handData.startTime + handData.totalTime).ToString(), handData.totalTime.ToString()));

@@ -1308,7 +1308,7 @@ GameObject:
   - component: {fileID: 3130132579570747127}
   - component: {fileID: 4187579012715837055}
   m_Layer: 0
-  m_Name: Bed_1_2_2
+  m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1922,7 +1922,7 @@ GameObject:
   - component: {fileID: 2528028330345872958}
   - component: {fileID: 6920590962649352775}
   m_Layer: 0
-  m_Name: handrail (4)
+  m_Name: handrail (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2235,7 +2235,7 @@ GameObject:
   - component: {fileID: 4314635119570903169}
   - component: {fileID: 4627142491485258173}
   m_Layer: 0
-  m_Name: handrail (5)
+  m_Name: handrail (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2411,7 +2411,7 @@ GameObject:
   - component: {fileID: 928130483247060396}
   - component: {fileID: 3633296602325501924}
   m_Layer: 0
-  m_Name: handrail (3)
+  m_Name: handrail (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
