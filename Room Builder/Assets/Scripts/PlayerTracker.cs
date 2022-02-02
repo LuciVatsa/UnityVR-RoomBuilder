@@ -46,12 +46,23 @@ public class PlayerTracker : MonoBehaviour
             float x = gameObject.transform.localPosition.x + parentX;
             float y = gameObject.transform.localPosition.y + parentY;
             float z = gameObject.transform.localPosition.z + parentZ;
-            StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString(), distance.ToString()));
-            //Debug.Log("POS: (" + x.ToString() + " , " + z.ToString() + " )");
-            // execute block of code here
+            string rx = gameObject.transform.rotation.eulerAngles.x.ToString();
+            string ry = gameObject.transform.rotation.eulerAngles.y.ToString();
+            string rz = gameObject.transform.rotation.eulerAngles.z.ToString();
+            /*
+            string lrx = gameObject.transform.localRotation.eulerAngles.x.ToString();
+            string lry = gameObject.transform.localRotation.eulerAngles.y.ToString();
+            string lrz = gameObject.transform.localRotation.eulerAngles.z.ToString();
+
+            Debug.Log("rotation global: (" + rx + ", " + ry + ", " + rz + ") local: (" + lrx + ", " + lry + ", " + lrz + ")");
+            */
+            StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString(), rx, ry, rz));
+            
         }
 
-        
+        //Debug.Log("rotation x: " + gameObject.transform.rotation.eulerAngles.x.ToString() + "rotation y: " + gameObject.transform.rotation.eulerAngles.y.ToString() + "rotation z: " + gameObject.transform.rotation.eulerAngles.z.ToString());
+
+
         /*
         if (Input.GetKeyDown("p"))
         {
@@ -133,7 +144,7 @@ public class PlayerTracker : MonoBehaviour
 #endif
     }
 
-    IEnumerator Post(string name, string time, string px, string py, string pz, string distance)
+    IEnumerator Post(string name, string time, string px, string py, string pz, string rx, string ry, string rz)
     {
         WWWForm form = new WWWForm();
         form.AddField("entry.494714337", name);
@@ -141,6 +152,9 @@ public class PlayerTracker : MonoBehaviour
         form.AddField("entry.262891016", px);
         form.AddField("entry.254378415", py);
         form.AddField("entry.1716180825", pz);
+        form.AddField("entry.840493581", rx);
+        form.AddField("entry.14936832", ry);
+        form.AddField("entry.638208784", rz);
 
         byte[] rawDataGoogle = form.data;
         WWW www = new WWW(BASE_URL, rawDataGoogle);
