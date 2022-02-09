@@ -49,13 +49,13 @@ public class PlayerTracker : MonoBehaviour
             string rx = gameObject.transform.rotation.eulerAngles.x.ToString();
             string ry = gameObject.transform.rotation.eulerAngles.y.ToString();
             string rz = gameObject.transform.rotation.eulerAngles.z.ToString();
-            /*
+            
             string lrx = gameObject.transform.localRotation.eulerAngles.x.ToString();
             string lry = gameObject.transform.localRotation.eulerAngles.y.ToString();
             string lrz = gameObject.transform.localRotation.eulerAngles.z.ToString();
 
-            Debug.Log("rotation global: (" + rx + ", " + ry + ", " + rz + ") local: (" + lrx + ", " + lry + ", " + lrz + ")");
-            */
+            //Debug.Log("rotation global: (" + rx + ", " + ry + ", " + rz + ") local: (" + lrx + ", " + lry + ", " + lrz + ")");
+            
             StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString(), rx, ry, rz));
             
         }
