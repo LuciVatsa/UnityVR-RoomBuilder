@@ -57,7 +57,9 @@ public class PlayerTracker : MonoBehaviour
             //Debug.Log("rotation global: (" + rx + ", " + ry + ", " + rz + ") local: (" + lrx + ", " + lry + ", " + lrz + ")");
             
             StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString(), rx, ry, rz));
-            
+
+            string[] rowDataTemp = new string[5];
+            StartCoroutine(WriteToFile(rowDataTemp));
         }
 
         //Debug.Log("rotation x: " + gameObject.transform.rotation.eulerAngles.x.ToString() + "rotation y: " + gameObject.transform.rotation.eulerAngles.y.ToString() + "rotation z: " + gameObject.transform.rotation.eulerAngles.z.ToString());
@@ -109,6 +111,24 @@ public class PlayerTracker : MonoBehaviour
             yield return null;
         }
     }*/
+
+    IEnumerator WriteToFile(string[] output)
+    {
+        Debug.Log("Writing to file Now");
+
+        string delimiter = ",";
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.AppendLine(string.Join(delimiter, output[0]));
+        
+        string filePath = getPath();
+        StreamWriter outStream = System.IO.File.CreateText(filePath);
+        outStream.WriteLine(sb);
+        outStream.Close();
+        Debug.Log("Finished Writing to File");
+        yield return null;
+    }
     void WriteToFile()
     {
         Debug.Log("Writing to file Now");
