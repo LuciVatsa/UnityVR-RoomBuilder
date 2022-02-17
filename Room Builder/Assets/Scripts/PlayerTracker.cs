@@ -59,7 +59,7 @@ public class PlayerTracker : MonoBehaviour
             StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString(), rx, ry, rz));
 
             string[] rowDataTemp = new string[5];
-            StartCoroutine(WriteToFile(rowDataTemp));
+            //StartCoroutine(WriteToFile(rowDataTemp));
         }
 
         //Debug.Log("rotation x: " + gameObject.transform.rotation.eulerAngles.x.ToString() + "rotation y: " + gameObject.transform.rotation.eulerAngles.y.ToString() + "rotation z: " + gameObject.transform.rotation.eulerAngles.z.ToString());
