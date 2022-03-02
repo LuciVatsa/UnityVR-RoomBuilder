@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text;
 using System.IO;
+using System;
 
 public class PlayerTracker : MonoBehaviour
 {
@@ -26,6 +27,13 @@ public class PlayerTracker : MonoBehaviour
         parentX = playerParent.transform.localPosition.x;
         parentY = playerParent.transform.localPosition.y;
         parentZ = playerParent.transform.localPosition.z;
+
+        string filePath = getPath();
+        if (File.Exists(filePath))
+            System.IO.File.WriteAllText(filePath, string.Empty);
+
+        string header = "Object Name,Time,PosX,PosY,PosZ,RotX,RotY,RotZ";
+        StartCoroutine(WriteToFile(header));
     }
     void Save()
     {
@@ -54,79 +62,31 @@ public class PlayerTracker : MonoBehaviour
             string lry = gameObject.transform.localRotation.eulerAngles.y.ToString();
             string lrz = gameObject.transform.localRotation.eulerAngles.z.ToString();
 
-            //Debug.Log("rotation global: (" + rx + ", " + ry + ", " + rz + ") local: (" + lrx + ", " + lry + ", " + lrz + ")");
-            
             StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString(), rx, ry, rz));
 
-            string[] rowDataTemp = new string[5];
-            //StartCoroutine(WriteToFile(rowDataTemp));
+            string output = name + "," + Time.time.ToString() + "," + x.ToString() + "," + y.ToString() + "," + z.ToString() + "," + rx + "," + ry + "," + rz;
+            StartCoroutine(WriteToFile(output));
         }
-
-        //Debug.Log("rotation x: " + gameObject.transform.rotation.eulerAngles.x.ToString() + "rotation y: " + gameObject.transform.rotation.eulerAngles.y.ToString() + "rotation z: " + gameObject.transform.rotation.eulerAngles.z.ToString());
-
-
-        /*
-        if (Input.GetKeyDown("p"))
-        {
-            if (!startRecord)
-            {
-                startRecord = true;
-                preX = gameObject.transform.localPosition.x;
-                preZ = gameObject.transform.localPosition.z;
-                distance = 0.0f;
-                StartCoroutine(RecordPlayerData());
-            }
-            else
-            {
-                Debug.Log("stop");
-                StopCoroutine(RecordPlayerData());
-                WriteToFile();
-                startRecord = false;
-            }
-        }*/
 
     }
-    /*
-    IEnumerator RecordPlayerData()
+
+    IEnumerator WriteToFile(string output)
     {
-        while (true)
-        {
-            //Debug.Log("0");
-            float x = gameObject.transform.localPosition.x;
-            float z = gameObject.transform.localPosition.z;
-            distance += Mathf.Sqrt(Mathf.Pow((x - preX), 2) + Mathf.Pow((z - preZ), 2));
-            
-            string[] rowDataTemp = new string[5];
-            rowDataTemp[0] = name;
-            rowDataTemp[1] = Time.time.ToString();
-            rowDataTemp[2] = x.ToString();
-            rowDataTemp[3] = z.ToString();
-            rowDataTemp[4] = distance.ToString();
-            preX = x;
-            preZ = z;
-            //rowData.Add(rowDataTemp);
-
-            StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString()));
-
-            yield return null;
-        }
-    }*/
-
-    IEnumerator WriteToFile(string[] output)
-    {
-        Debug.Log("Writing to file Now");
-
-        string delimiter = ",";
-
-        StringBuilder sb = new StringBuilder();
-
-        sb.AppendLine(string.Join(delimiter, output[0]));
-        
         string filePath = getPath();
-        StreamWriter outStream = System.IO.File.CreateText(filePath);
-        outStream.WriteLine(sb);
-        outStream.Close();
-        Debug.Log("Finished Writing to File");
+        if (!File.Exists(filePath))
+        {
+            StreamWriter outStream = System.IO.File.CreateText(filePath);
+            outStream.WriteLine(output);
+            outStream.Close();
+        }
+        else
+        {
+            // Open the stream and write to it.
+            using (StreamWriter sw = File.AppendText(filePath))
+            {
+                sw.WriteLine(output);                
+            }
+        }
         yield return null;
     }
     void WriteToFile()
@@ -158,7 +118,12 @@ public class PlayerTracker : MonoBehaviour
     private string getPath()
     {
 #if UNITY_EDITOR
-        return Application.dataPath + "/CSV" + "ObjectData" + name + ".csv";
+        ObjectPosition g = FindObjectOfType<ObjectPosition>();
+        string s = g.name;
+        int found = s.IndexOf(" obj");
+        string roomname = s.Substring(0, found);
+        return Application.dataPath + "/CSV files/" + roomname + "/Player Data/" + name + ".csv";
+
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
 #endif

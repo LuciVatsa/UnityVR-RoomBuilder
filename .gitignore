@@ -7,3 +7,6 @@ Room Builder/Assets/VR-ready PBR toilet/Maps/Metallic.tga.meta
 Room Builder/Assets/VR-ready PBR toilet/Maps/Height.tga.meta
 Room Builder/Assets/VR-ready PBR toilet/Maps/Height.tga
 Room Builder/Assets/VR-ready PBR toilet/Maps/Metallic_smoothness.tga
+Room Builder/Assets/CSV files
+*.csv
+*.meta

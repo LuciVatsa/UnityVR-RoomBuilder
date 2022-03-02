@@ -28,13 +28,12 @@ public class ObjectPosition : MonoBehaviour
 
             int children_c = transform.GetChild(i).childCount;
             Save("[" + title + "] " + transform.GetChild(i).name, transform.GetChild(i).transform.localPosition.x.ToString(), transform.GetChild(i).transform.localPosition.z.ToString());
-            /*
-            for (int j = 0; i < children_c; ++i)
-            {
-                Save(transform.GetChild(i).GetChild(j).name);
             
-            }*/
         }
+
+        string filePath = getPath();
+        if (File.Exists(filePath))
+            System.IO.File.WriteAllText(filePath, string.Empty);
 
         WriteToFile();
     }
@@ -86,10 +85,33 @@ public class ObjectPosition : MonoBehaviour
         Debug.Log("Finished Writing to File");
     }
 
+    IEnumerator WriteToFile(string output)
+    {
+        string filePath = getPath();
+        if (!File.Exists(filePath))
+        {
+            StreamWriter outStream = System.IO.File.CreateText(filePath);
+            outStream.WriteLine(output);
+            outStream.Close();
+        }
+        else
+        {
+            // Open the stream and write to it.
+            using (StreamWriter sw = File.AppendText(filePath))
+            {
+                sw.WriteLine(output);
+            }
+        }
+        yield return null;
+    }
+
     private string getPath()
     {
 #if UNITY_EDITOR
-        return Application.dataPath + "/CSV" + "ObjectPosition.csv";
+        string s = this.gameObject.name;
+        int found = s.IndexOf(" obj");
+        string roomname = s.Substring(0, found);
+        return Application.dataPath + "/CSV files/" + roomname + "/Object Position/" + this.gameObject.name +".csv";
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
 #endif

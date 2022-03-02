@@ -42,7 +42,12 @@ public class CollideTracker : MonoBehaviour
 
     private void Start()
     {
-        
+        string filePath = getPath();
+        if (File.Exists(filePath))
+            System.IO.File.WriteAllText(filePath, string.Empty);
+
+        string output = "Player Contact,Contact Object Name,Start Time,End Time";
+        StartCoroutine(WriteToFile(output));
     }
 
     /*
@@ -100,7 +105,6 @@ public class CollideTracker : MonoBehaviour
             if (handData.totalTime != 0.0f)
             {
                 StartCoroutine(Post(handData.name, handData.collideObject, handData.startTime.ToString(), (handData.startTime + handData.totalTime).ToString(), handData.totalTime.ToString()));
-                //Debug.Log("name:" + handData.name + ", collide object:" + handData.collideObject + ", start time:" + handData.startTime + ", total time: " + handData.totalTime);
                 
             }
 
@@ -139,9 +143,9 @@ public class CollideTracker : MonoBehaviour
 
             if (!handData.collideObject.Contains("Collider") && !handData.collideObject.Contains("Plane") && !handData.collideObject.Contains("Wall"))
             {
-                //handDatasResults.Add(handData);
-                StartCoroutine(Post(handData.name, handData.collideObject, handData.startTime.ToString(), (handData.startTime + handData.totalTime).ToString(), handData.totalTime.ToString()));
-
+                //StartCoroutine(Post(handData.name, handData.collideObject, handData.startTime.ToString(), (handData.startTime + handData.totalTime).ToString(), handData.totalTime.ToString()));
+                string output = handData.name + "," + handData.collideObject + "," + handData.startTime.ToString() + "," + (handData.startTime + handData.totalTime).ToString();
+                StartCoroutine(WriteToFile(output));
             }
             
         }
@@ -199,6 +203,18 @@ public class CollideTracker : MonoBehaviour
         //StartCoroutine(Post(collision.gameObject.ToString(), name, startTime.ToString(), endTime.ToString(), totalTime.ToString()));
     }*/
 
+    private string getPath()
+    {
+#if UNITY_EDITOR
+        ObjectPosition g = FindObjectOfType<ObjectPosition>();
+        string s = g.name;
+        int found = s.IndexOf(" obj");
+        string roomname = s.Substring(0, found);
+        return Application.dataPath + "/CSV files/" + roomname + "/Contact Data/" + name + ".csv";
+#else
+        return Application.dataPath + "/"+"CurrentInfo.csv";
+#endif
+    }
 
     int FindIndex(Collision collision)
     {
@@ -278,17 +294,30 @@ public class CollideTracker : MonoBehaviour
         StartCoroutine(Post(name, startTime.ToString(), endTime.ToString(), totalTime.ToString());
     }
     */
+    IEnumerator WriteToFile(string output)
+    {
+        string filePath = getPath();
+        if (!File.Exists(filePath))
+        {
+            StreamWriter outStream = System.IO.File.CreateText(filePath);
+            outStream.WriteLine(output);
+            outStream.Close();
+        }
+        else
+        {
+            // Open the stream and write to it.
+            using (StreamWriter sw = File.AppendText(filePath))
+            {
+                sw.WriteLine(output);
+            }
+        }
+        yield return null;
+    }
 
     IEnumerator Post(string i_playerContactName, string i_name, string i_startTime, string i_endTime, string i_totalTime)
     {
         WWWForm form = new WWWForm();
-        /*
-        form.AddField("entry.1156870628", i_playerContactName);
-        form.AddField("entry.1219406179", i_name);
-        form.AddField("entry.1375789603", i_startTime);
-        form.AddField("entry.1681171193", i_endTime);
-        form.AddField("entry.1523515611", i_totalTime);*/
-
+        
         form.AddField("entry.1700357637", i_playerContactName);
         form.AddField("entry.1172557804", i_name);
         form.AddField("entry.1173118163", i_startTime);
