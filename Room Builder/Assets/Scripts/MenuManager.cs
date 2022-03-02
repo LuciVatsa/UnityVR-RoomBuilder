@@ -11,43 +11,296 @@ public class MenuManager : Editor
 
     
 
-    [MenuItem("VR/Enable Data Scripts")]
+    [MenuItem("VR/Data/Enable Data Scripts")]
     static void EnableScripts()
+    {
+        GameObject[] gameobjects;
+        gameobjects = GameObject.FindGameObjectsWithTag("DataCollect");
+        var head = GameObject.FindGameObjectWithTag("MainCamera");
+
+        foreach(var go in gameobjects)
+        {
+            if (go.GetComponent<PlayerTracker>() != null)
+                go.GetComponent<PlayerTracker>().enabled = true;
+
+            if (go.GetComponent<ObjectPosition> () != null)
+                go.GetComponent<ObjectPosition>().enabled = true;
+        }
+
+        if (head.GetComponent<PlayerTracker>() != null)
+            head.GetComponent<PlayerTracker>().enabled = true;
+
+    }
+
+    [MenuItem("VR/Data/Disable Data Scripts")]
+    static void DisableScripts()
     {
         GameObject[] gameobjects;
         gameobjects = GameObject.FindGameObjectsWithTag("DataCollect");
         //var obj = GameObject.FindGameObjectWithTag("DataCollect");
         var head = GameObject.FindGameObjectWithTag("MainCamera");
 
-        foreach(var go in gameobjects)
+        foreach (var go in gameobjects)
         {
-            foreach (MonoBehaviour script in go.GetComponents<MonoBehaviour>())
-            {
-                if (script.name.Contains("Tracker"))
-                    script.enabled = true;
-            }
+            if (go.GetComponent<PlayerTracker>() != null)
+                go.GetComponent<PlayerTracker>().enabled = false;
+
+            if (go.GetComponent<ObjectPosition>() != null)
+                go.GetComponent<ObjectPosition>().enabled = false;
         }
 
-        string[] assetPaths = AssetDatabase.GetAllAssetPaths();
-        foreach (string assetPath in assetPaths)
-        {
-            if (assetPath.Contains(".cs")) // or .js if you want
-            {
-                Debug.Log(assetPath);
-            }
-        }
+        if (head.GetComponent<PlayerTracker>() != null)
+            head.GetComponent<PlayerTracker>().enabled = false;
 
-        AllScripts.Clear();
-        UnityEngine.Object[] scripts = Resources.LoadAll("Scripts");
+    }
 
-        foreach (UnityEngine.Object script in scripts)
-        {
-            if (scripts.ToString().Contains("Tracker"))
-            {
-                
-            }
-        }
+    [MenuItem("VR/Room/Headwall Slide Door")]
+    static void HeadwallSlideDoor()
+    {
+        RoomManager myObject = FindObjectOfType<RoomManager>();
 
-        Debug.Log(AllScripts.Count.ToString());
+        myObject.HeadwallSlideDoor.SetActive(true);
+        myObject.HeadwallSlideDoorPoints.SetActive(true);
+        myObject.HeadwallSwingDoor.SetActive(false);
+        myObject.HeadwallSwingDoorPoints.SetActive(false); 
+        myObject.Headwall2SlideDoor.SetActive(false);
+        myObject.Headwall2SlideDoorPoints.SetActive(false);
+        myObject.Headwall2SwingDoor.SetActive(false);
+        myObject.Headwall2SwingDoorPoints.SetActive(false);
+
+        myObject.FootwallSlideDoor.SetActive(false);
+        myObject.FootwallSlideDoorPoints.SetActive(false);
+        myObject.FootwallSwingDoor.SetActive(false);
+        myObject.FootwallSwingDoorPoints.SetActive(false);
+        myObject.Footwall2SlideDoor.SetActive(false);
+        myObject.Footwall2SlideDoorPoints.SetActive(false);
+        myObject.Footwall2SwingDoor.SetActive(false);
+        myObject.Footwall2SwingDoorPoints.SetActive(false);
+
+    }
+
+    [MenuItem("VR/Room/Headwall Swing Door")]
+    static void HeadwallSwingDoor()
+    {
+        RoomManager myObject = FindObjectOfType<RoomManager>();
+
+        myObject.HeadwallSlideDoor.SetActive(false);
+        myObject.HeadwallSlideDoorPoints.SetActive(false);
+        myObject.HeadwallSwingDoor.SetActive(true);
+        myObject.HeadwallSwingDoorPoints.SetActive(true);
+        myObject.Headwall2SlideDoor.SetActive(false);
+        myObject.Headwall2SlideDoorPoints.SetActive(false);
+        myObject.Headwall2SwingDoor.SetActive(false);
+        myObject.Headwall2SwingDoorPoints.SetActive(false);
+
+        myObject.FootwallSlideDoor.SetActive(false);
+        myObject.FootwallSlideDoorPoints.SetActive(false);
+        myObject.FootwallSwingDoor.SetActive(false);
+        myObject.FootwallSwingDoorPoints.SetActive(false);
+        myObject.Footwall2SlideDoor.SetActive(false);
+        myObject.Footwall2SlideDoorPoints.SetActive(false);
+        myObject.Footwall2SwingDoor.SetActive(false);
+        myObject.Footwall2SwingDoorPoints.SetActive(false);
+
+    }
+
+    [MenuItem("VR/Room/Headwall-2 Slide Door")]
+    static void Headwall2SlideDoor()
+    {
+        RoomManager myObject = FindObjectOfType<RoomManager>();
+
+        myObject.HeadwallSlideDoor.SetActive(false);
+        myObject.HeadwallSlideDoorPoints.SetActive(false);
+        myObject.HeadwallSwingDoor.SetActive(false);
+        myObject.HeadwallSwingDoorPoints.SetActive(false);
+        myObject.Headwall2SlideDoor.SetActive(true);
+        myObject.Headwall2SlideDoorPoints.SetActive(true);
+        myObject.Headwall2SwingDoor.SetActive(false);
+        myObject.Headwall2SwingDoorPoints.SetActive(false);
+
+        myObject.FootwallSlideDoor.SetActive(false);
+        myObject.FootwallSlideDoorPoints.SetActive(false);
+        myObject.FootwallSwingDoor.SetActive(false);
+        myObject.FootwallSwingDoorPoints.SetActive(false);
+        myObject.Footwall2SlideDoor.SetActive(false);
+        myObject.Footwall2SlideDoorPoints.SetActive(false);
+        myObject.Footwall2SwingDoor.SetActive(false);
+        myObject.Footwall2SwingDoorPoints.SetActive(false);
+
+    }
+
+    [MenuItem("VR/Room/Headwall-2 Swing Door")]
+    static void Headwall2SwingDoor()
+    {
+        RoomManager myObject = FindObjectOfType<RoomManager>();
+
+        myObject.HeadwallSlideDoor.SetActive(false);
+        myObject.HeadwallSlideDoorPoints.SetActive(false);
+        myObject.HeadwallSwingDoor.SetActive(false);
+        myObject.HeadwallSwingDoorPoints.SetActive(false);
+        myObject.Headwall2SlideDoor.SetActive(false);
+        myObject.Headwall2SlideDoorPoints.SetActive(false);
+        myObject.Headwall2SwingDoor.SetActive(true);
+        myObject.Headwall2SwingDoorPoints.SetActive(true);
+
+        myObject.FootwallSlideDoor.SetActive(false);
+        myObject.FootwallSlideDoorPoints.SetActive(false);
+        myObject.FootwallSwingDoor.SetActive(false);
+        myObject.FootwallSwingDoorPoints.SetActive(false);
+        myObject.Footwall2SlideDoor.SetActive(false);
+        myObject.Footwall2SlideDoorPoints.SetActive(false);
+        myObject.Footwall2SwingDoor.SetActive(false);
+        myObject.Footwall2SwingDoorPoints.SetActive(false);
+
+    }
+
+    [MenuItem("VR/Room/Footwall Slide Door")]
+    static void FootwallSlideDoor()
+    {
+        RoomManager myObject = FindObjectOfType<RoomManager>();
+
+        myObject.HeadwallSlideDoor.SetActive(false);
+        myObject.HeadwallSlideDoorPoints.SetActive(false);
+        myObject.HeadwallSwingDoor.SetActive(false);
+        myObject.HeadwallSwingDoorPoints.SetActive(false);
+        myObject.Headwall2SlideDoor.SetActive(false);
+        myObject.Headwall2SlideDoorPoints.SetActive(false);
+        myObject.Headwall2SwingDoor.SetActive(false);
+        myObject.Headwall2SwingDoorPoints.SetActive(false);
+
+        myObject.FootwallSlideDoor.SetActive(true);
+        myObject.FootwallSlideDoorPoints.SetActive(true);
+        myObject.FootwallSwingDoor.SetActive(false);
+        myObject.FootwallSwingDoorPoints.SetActive(false);
+        myObject.Footwall2SlideDoor.SetActive(false);
+        myObject.Footwall2SlideDoorPoints.SetActive(false);
+        myObject.Footwall2SwingDoor.SetActive(false);
+        myObject.Footwall2SwingDoorPoints.SetActive(false);
+
+    }
+
+    [MenuItem("VR/Room/Footwall Swing Door")]
+    static void FootwallSwingDoor()
+    {
+        RoomManager myObject = FindObjectOfType<RoomManager>();
+
+        myObject.HeadwallSlideDoor.SetActive(false);
+        myObject.HeadwallSlideDoorPoints.SetActive(false);
+        myObject.HeadwallSwingDoor.SetActive(false);
+        myObject.HeadwallSwingDoorPoints.SetActive(false);
+        myObject.Headwall2SlideDoor.SetActive(false);
+        myObject.Headwall2SlideDoorPoints.SetActive(false);
+        myObject.Headwall2SwingDoor.SetActive(false);
+        myObject.Headwall2SwingDoorPoints.SetActive(false);
+
+        myObject.FootwallSlideDoor.SetActive(false);
+        myObject.FootwallSlideDoorPoints.SetActive(false);
+        myObject.FootwallSwingDoor.SetActive(true);
+        myObject.FootwallSwingDoorPoints.SetActive(true);
+        myObject.Footwall2SlideDoor.SetActive(false);
+        myObject.Footwall2SlideDoorPoints.SetActive(false);
+        myObject.Footwall2SwingDoor.SetActive(false);
+        myObject.Footwall2SwingDoorPoints.SetActive(false);
+
+    }
+
+    [MenuItem("VR/Room/Footwall-2 Slide Door")]
+    static void Footwall2SlideDoor()
+    {
+        RoomManager myObject = FindObjectOfType<RoomManager>();
+
+        myObject.HeadwallSlideDoor.SetActive(false);
+        myObject.HeadwallSlideDoorPoints.SetActive(false);
+        myObject.HeadwallSwingDoor.SetActive(false);
+        myObject.HeadwallSwingDoorPoints.SetActive(false);
+        myObject.Headwall2SlideDoor.SetActive(false);
+        myObject.Headwall2SlideDoorPoints.SetActive(false);
+        myObject.Headwall2SwingDoor.SetActive(false);
+        myObject.Headwall2SwingDoorPoints.SetActive(false);
+
+        myObject.FootwallSlideDoor.SetActive(false);
+        myObject.FootwallSlideDoorPoints.SetActive(false);
+        myObject.FootwallSwingDoor.SetActive(false);
+        myObject.FootwallSwingDoorPoints.SetActive(false);
+        myObject.Footwall2SlideDoor.SetActive(true);
+        myObject.Footwall2SlideDoorPoints.SetActive(true);
+        myObject.Footwall2SwingDoor.SetActive(false);
+        myObject.Footwall2SwingDoorPoints.SetActive(false);
+
+    }
+
+    [MenuItem("VR/Room/Footwall-2 Swing Door")]
+    static void Footwall2SwingDoor()
+    {
+        RoomManager myObject = FindObjectOfType<RoomManager>();
+
+        myObject.HeadwallSlideDoor.SetActive(false);
+        myObject.HeadwallSlideDoorPoints.SetActive(false);
+        myObject.HeadwallSwingDoor.SetActive(false);
+        myObject.HeadwallSwingDoorPoints.SetActive(false);
+        myObject.Headwall2SlideDoor.SetActive(false);
+        myObject.Headwall2SlideDoorPoints.SetActive(false);
+        myObject.Headwall2SwingDoor.SetActive(false);
+        myObject.Headwall2SwingDoorPoints.SetActive(false);
+
+        myObject.FootwallSlideDoor.SetActive(false);
+        myObject.FootwallSlideDoorPoints.SetActive(false);
+        myObject.FootwallSwingDoor.SetActive(false);
+        myObject.FootwallSwingDoorPoints.SetActive(false);
+        myObject.Footwall2SlideDoor.SetActive(false);
+        myObject.Footwall2SlideDoorPoints.SetActive(false);
+        myObject.Footwall2SwingDoor.SetActive(true);
+        myObject.Footwall2SwingDoorPoints.SetActive(true);
+
+    }
+
+    [MenuItem("VR/Room/Enable All")]
+    static void EnableAll()
+    {
+        RoomManager myObject = FindObjectOfType<RoomManager>();
+
+        myObject.HeadwallSlideDoor.SetActive(true);
+        myObject.HeadwallSlideDoorPoints.SetActive(true);
+        myObject.HeadwallSwingDoor.SetActive(true);
+        myObject.HeadwallSwingDoorPoints.SetActive(true);
+        myObject.Headwall2SlideDoor.SetActive(true);
+        myObject.Headwall2SlideDoorPoints.SetActive(true);
+        myObject.Headwall2SwingDoor.SetActive(true);
+        myObject.Headwall2SwingDoorPoints.SetActive(true);
+
+        myObject.FootwallSlideDoor.SetActive(true);
+        myObject.FootwallSlideDoorPoints.SetActive(true);
+        myObject.FootwallSwingDoor.SetActive(true);
+        myObject.FootwallSwingDoorPoints.SetActive(true);
+        myObject.Footwall2SlideDoor.SetActive(true);
+        myObject.Footwall2SlideDoorPoints.SetActive(true);
+        myObject.Footwall2SwingDoor.SetActive(true);
+        myObject.Footwall2SwingDoorPoints.SetActive(true);
+
+    }
+
+    [MenuItem("VR/Room/Disable All")]
+    static void DisableAll()
+    {
+        RoomManager myObject = FindObjectOfType<RoomManager>();
+
+        myObject.HeadwallSlideDoor.SetActive(false);
+        myObject.HeadwallSlideDoorPoints.SetActive(false);
+        myObject.HeadwallSwingDoor.SetActive(false);
+        myObject.HeadwallSwingDoorPoints.SetActive(false);
+        myObject.Headwall2SlideDoor.SetActive(false);
+        myObject.Headwall2SlideDoorPoints.SetActive(false);
+        myObject.Headwall2SwingDoor.SetActive(false);
+        myObject.Headwall2SwingDoorPoints.SetActive(false);
+
+        myObject.FootwallSlideDoor.SetActive(false);
+        myObject.FootwallSlideDoorPoints.SetActive(false);
+        myObject.FootwallSwingDoor.SetActive(false);
+        myObject.FootwallSwingDoorPoints.SetActive(false);
+        myObject.Footwall2SlideDoor.SetActive(false);
+        myObject.Footwall2SlideDoorPoints.SetActive(false);
+        myObject.Footwall2SwingDoor.SetActive(false);
+        myObject.Footwall2SwingDoorPoints.SetActive(false);
+
     }
 }
