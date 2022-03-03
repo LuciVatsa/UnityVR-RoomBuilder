@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Collections;
-public class ObjectPosition : MonoBehaviour
+public class ObjectPositionY : MonoBehaviour
 {
 
     private List<string[]> rowData = new List<string[]>();
@@ -16,38 +16,41 @@ public class ObjectPosition : MonoBehaviour
     void Start()
     {
         title = this.ToString();
-        
-        string[] rowDataTemp = new string[4];
+
+        string[] rowDataTemp = new string[2];
         rowDataTemp[0] = "Object Name";
-        rowDataTemp[1] = "PosX";
-        rowDataTemp[2] = "PosZ";
+        rowDataTemp[1] = "PosY";
         rowData.Add(rowDataTemp);
 
         int children = transform.childCount;
-        for (int i = 0; i < children; ++i) {
-
+        for (int i = 0; i < children; ++i)
+        {
             int children_c = transform.GetChild(i).childCount;
-            Save("[" + title + "] " + transform.GetChild(i).name, transform.GetChild(i).transform.localPosition.x.ToString(), transform.GetChild(i).transform.localPosition.z.ToString());
-            
+            Save("[" + title + "] " + transform.GetChild(i).name, transform.GetChild(i).transform.localPosition.z.ToString());
+
         }
 
         string filePath = getPath();
         if (File.Exists(filePath))
             System.IO.File.WriteAllText(filePath, string.Empty);
+        else
+        {
+            StreamWriter outStream = System.IO.File.CreateText(filePath);
+            outStream.Close();
+        }
 
         WriteToFile();
     }
 
-    void Save(string name, string x, string y)
+    void Save(string name, string z)
     {
 
 
-        string[] rowDataTemp = new string[4];
+        string[] rowDataTemp = new string[2];
         rowDataTemp[0] = name;
-        rowDataTemp[1] = x;
-        rowDataTemp[2] = y;
+        rowDataTemp[1] = z;
         rowData.Add(rowDataTemp);
-       // StartCoroutine(Post(name, x, y));
+        //StartCoroutine(Post(name, x, y));
 
 
 
@@ -56,7 +59,7 @@ public class ObjectPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void WriteToFile()
@@ -108,10 +111,11 @@ public class ObjectPosition : MonoBehaviour
     private string getPath()
     {
 #if UNITY_EDITOR
-        string s = this.gameObject.name;
-        int found = s.IndexOf(" obj");
-        string roomname = s.Substring(0, found);
-        return Application.dataPath + "/CSV files/" + roomname + "/Object Position/" + this.gameObject.name +".csv";
+        //string s = this.gameObject.name;
+        //int found = s.IndexOf(" obj");
+        //string roomname = s.Substring(0, found);
+        //return Application.dataPath + "/CSV files/" + roomname + "/Object Position/" + this.gameObject.name +".csv";
+        return Application.dataPath + "/CSV files/" + this.gameObject.name + ".csv";
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
 #endif

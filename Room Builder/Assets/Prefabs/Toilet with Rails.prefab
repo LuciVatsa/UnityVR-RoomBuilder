@@ -47,7 +47,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!59 &8744439749135913227
 HingeJoint:
@@ -60,7 +60,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 25.196644, y: 0.45, z: 24.390396}
+  m_ConnectedAnchor: {x: 16.866644, y: 0.45, z: 10.440395}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -130,7 +130,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &8745134578251065987
 GameObject:
@@ -590,7 +590,7 @@ PrefabInstance:
     - target: {fileID: 7708040133411348073, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 25.038225
+      value: 16.708225
       objectReference: {fileID: 0}
     - target: {fileID: 7708040133411348073, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
@@ -600,7 +600,7 @@ PrefabInstance:
     - target: {fileID: 7708040133411348073, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 24.610682
+      value: 10.660681
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3df84379652aa364692d3393a58d7d00, type: 3}
@@ -685,7 +685,7 @@ PrefabInstance:
     - target: {fileID: 7708040133411348073, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 25.438225
+      value: 17.108225
       objectReference: {fileID: 0}
     - target: {fileID: 7708040133411348073, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
@@ -695,7 +695,7 @@ PrefabInstance:
     - target: {fileID: 7708040133411348073, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 24.274681
+      value: 10.324682
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3df84379652aa364692d3393a58d7d00, type: 3}
