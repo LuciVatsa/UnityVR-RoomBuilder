@@ -21,6 +21,10 @@ public class RoomManager : MonoBehaviour
     public GameObject Footwall2SlideDoorPoints;
     public GameObject Footwall2SwingDoor;
     public GameObject Footwall2SwingDoorPoints;
+
+    public GameObject Player;
+
+    public Vector3 PlayerLocalPosition = new Vector3(3.0f, 0.0f, 3.0f);
     // Start is called before the first frame update
     void Start()
     {
