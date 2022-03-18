@@ -32,8 +32,13 @@ public class PlayerTracker : MonoBehaviour
         if (File.Exists(filePath))
             System.IO.File.WriteAllText(filePath, string.Empty);
 
+        filePath = getTposePath();
+        if (File.Exists(filePath))
+            System.IO.File.WriteAllText(filePath, string.Empty);
+
         string header = "Object Name,Time,PosX,PosY,PosZ,RotX,RotY,RotZ";
-        StartCoroutine(WriteToFile(header));
+        StartCoroutine(WriteToFile(header, false));
+        StartCoroutine(WriteToFile(header, true));
     }
     void Save()
     {
@@ -58,21 +63,35 @@ public class PlayerTracker : MonoBehaviour
             string ry = gameObject.transform.rotation.eulerAngles.y.ToString();
             string rz = gameObject.transform.rotation.eulerAngles.z.ToString();
             
-            string lrx = gameObject.transform.localRotation.eulerAngles.x.ToString();
-            string lry = gameObject.transform.localRotation.eulerAngles.y.ToString();
-            string lrz = gameObject.transform.localRotation.eulerAngles.z.ToString();
-
-            StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString(), rx, ry, rz));
+            //StartCoroutine(Post(name, Time.time.ToString(), x.ToString(), y.ToString(), z.ToString(), rx, ry, rz));
 
             string output = name + "," + Time.time.ToString() + "," + x.ToString() + "," + y.ToString() + "," + z.ToString() + "," + rx + "," + ry + "," + rz;
-            StartCoroutine(WriteToFile(output));
+            StartCoroutine(WriteToFile(output, false));
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Debug.Log("SAVE T POSE !!!");
+            float x = gameObject.transform.localPosition.x + parentX;
+            float y = gameObject.transform.localPosition.y + parentY;
+            float z = gameObject.transform.localPosition.z + parentZ;
+            string rx = gameObject.transform.rotation.eulerAngles.x.ToString();
+            string ry = gameObject.transform.rotation.eulerAngles.y.ToString();
+            string rz = gameObject.transform.rotation.eulerAngles.z.ToString();
+            string output = name + "," + Time.time.ToString() + "," + x.ToString() + "," + y.ToString() + "," + z.ToString() + "," + rx + "," + ry + "," + rz;
+            StartCoroutine(WriteToFile(output, true));
         }
 
     }
 
-    IEnumerator WriteToFile(string output)
+    IEnumerator WriteToFile(string output, bool isTpose)
     {
-        string filePath = getPath();
+        string filePath;
+        if (isTpose)
+            filePath = getPath();
+        else
+            filePath = getTposePath();
+
         if (!File.Exists(filePath))
         {
             StreamWriter outStream = System.IO.File.CreateText(filePath);
@@ -123,6 +142,20 @@ public class PlayerTracker : MonoBehaviour
         int found = s.IndexOf(" obj");
         string roomname = s.Substring(0, found);
         return Application.dataPath + "/CSV files/" + roomname + "/Player Data/" + name + ".csv";
+
+#else
+      return Application.dataPath + "/"+"CurrentInfo.csv";
+#endif
+    }
+
+    private string getTposePath()
+    {
+#if UNITY_EDITOR
+        ObjectPosition g = FindObjectOfType<ObjectPosition>();
+        string s = g.name;
+        int found = s.IndexOf(" obj");
+        string roomname = s.Substring(0, found);
+        return Application.dataPath + "/CSV files/" + roomname + "/Player Data/Tpose.csv";
 
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
