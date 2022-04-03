@@ -12,6 +12,8 @@ public class ObjectPosition : MonoBehaviour
     private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSckeScN9oBB87ntLwAq31_CRvH70n2IhGAFad11Yq1K9liJ-A/formResponse";
 
     string title;
+    public Transform origin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,16 +22,34 @@ public class ObjectPosition : MonoBehaviour
         string[] rowDataTemp = new string[4];
         rowDataTemp[0] = "Object Name";
         rowDataTemp[1] = "PosX";
-        rowDataTemp[2] = "PosZ";
+        rowDataTemp[2] = "PosY";
+        rowDataTemp[3] = "PosZ";
         rowData.Add(rowDataTemp);
 
-        int children = transform.childCount;
-        for (int i = 0; i < children; ++i) {
+        Transform[] allchildren = transform.GetComponentsInChildren<Transform>();
+        for(int i = 0; i < allchildren.Length; i++)
+        {
+            //Debug.Log(allchildren[i].name);
+            Transform child = allchildren[i];
+            if(child.tag == "ObjectPosition")
+            {
+                string x = (child.position.x - origin.position.x).ToString();
+                string y = (child.position.y - origin.position.y).ToString();
+                string z = (child.position.z - origin.position.z).ToString();
+                Debug.Log("[" + title + "] " + child.name + ": (" + x + ", " + y + ", " + z + ")");
 
-            int children_c = transform.GetChild(i).childCount;
-            Save("[" + title + "] " + transform.GetChild(i).name, transform.GetChild(i).transform.localPosition.x.ToString(), transform.GetChild(i).transform.localPosition.z.ToString());
-            
+                //Save("[" + title + "] " + child.name, x, y, z);
+
+            }
         }
+
+        //int children = transform.childCount;
+        //for (int i = 0; i < children; ++i) {
+
+        //    int children_c = transform.GetChild(i).childCount;
+        //    Save("[" + title + "] " + transform.GetChild(i).name, transform.GetChild(i).transform.localPosition.x.ToString(), transform.GetChild(i).transform.localPosition.z.ToString());
+
+        //}
 
         string filePath = getPath();
         if (File.Exists(filePath))
@@ -38,7 +58,7 @@ public class ObjectPosition : MonoBehaviour
         WriteToFile();
     }
 
-    void Save(string name, string x, string y)
+    void Save(string name, string x, string y, string z)
     {
 
 
@@ -46,6 +66,7 @@ public class ObjectPosition : MonoBehaviour
         rowDataTemp[0] = name;
         rowDataTemp[1] = x;
         rowDataTemp[2] = y;
+        rowDataTemp[3] = z;
         rowData.Add(rowDataTemp);
        // StartCoroutine(Post(name, x, y));
 
