@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2514963241421195520}
   m_Layer: 0
-  m_Name: TR-B
+  m_Name: Sofa-TR-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4924473163134571803}
   m_Layer: 0
-  m_Name: TL-T
+  m_Name: Sofa-TL-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5242398596816807662}
   m_Layer: 0
-  m_Name: TR-T
+  m_Name: Sofa-TR-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2257035708133365597}
   m_Layer: 0
-  m_Name: BR-T
+  m_Name: Sofa-BR-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5946162252102450055}
   m_Layer: 0
-  m_Name: BL-B
+  m_Name: Sofa-BL-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1652302650048214623}
   m_Layer: 0
-  m_Name: TL-B
+  m_Name: Sofa-TL-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,7 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6296214284648656437}
   m_Layer: 0
-  m_Name: BR-B
+  m_Name: Sofa-BR-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,7 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2186059532253536835}
   m_Layer: 0
-  m_Name: BL-T
+  m_Name: Sofa-BL-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

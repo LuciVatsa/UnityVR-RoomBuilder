@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347513043791710477}
   m_Layer: 0
-  m_Name: BR-T
+  m_Name: Toilet-BR-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4644669347580348810}
   m_Layer: 0
-  m_Name: TL-B
+  m_Name: Toilet-TL-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8810285077334104246}
   m_Layer: 0
-  m_Name: BL-T
+  m_Name: Toilet-BL-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5573565775746673159}
   m_Layer: 0
-  m_Name: BL-B
+  m_Name: Toilet-BL-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1587481871319405031}
   m_Layer: 0
-  m_Name: BR-B
+  m_Name: Toilet-BR-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2023940644689295525}
   m_Layer: 0
-  m_Name: TR-T
+  m_Name: Toilet-TR-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,7 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1223242689007339327}
   m_Layer: 0
-  m_Name: TL-T
+  m_Name: Toilet-TL-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3044944005312593526}
   m_Layer: 0
-  m_Name: TR-B
+  m_Name: Toilet-TR-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

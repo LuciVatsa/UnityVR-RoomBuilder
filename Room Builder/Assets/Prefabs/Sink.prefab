@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3811776118884070933}
   m_Layer: 0
-  m_Name: TL-B
+  m_Name: Sink-TL-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6795945612426468611}
   m_Layer: 0
-  m_Name: TR-T
+  m_Name: Sink-TR-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2278833415459384937}
   m_Layer: 0
-  m_Name: BR-T
+  m_Name: Sink-BR-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 205314286799680593}
   m_Layer: 0
-  m_Name: TL-T
+  m_Name: Sink-TL-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7086818728389861632}
   m_Layer: 0
-  m_Name: BL-B
+  m_Name: Sink-BL-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3487272866478584025}
   m_Layer: 0
-  m_Name: BL-T
+  m_Name: Sink-BL-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 124766887118336438}
   m_Layer: 0
-  m_Name: BR-B
+  m_Name: Sink-BR-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1250888119735002170}
   m_Layer: 0
-  m_Name: TR-B
+  m_Name: Sink-TR-B
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

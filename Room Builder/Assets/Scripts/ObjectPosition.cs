@@ -36,9 +36,9 @@ public class ObjectPosition : MonoBehaviour
                 string x = (child.position.x - origin.position.x).ToString();
                 string y = (child.position.y - origin.position.y).ToString();
                 string z = (child.position.z - origin.position.z).ToString();
-                Debug.Log("[" + title + "] " + child.name + ": (" + x + ", " + y + ", " + z + ")");
+                //Debug.Log("[" + title + "] " + child.name + ": (" + x + ", " + y + ", " + z + ")");
 
-                //Save("[" + title + "] " + child.name, x, y, z);
+                Save("[" + title + "] " + child.name, x, y, z);
 
             }
         }
@@ -129,10 +129,10 @@ public class ObjectPosition : MonoBehaviour
     private string getPath()
     {
 #if UNITY_EDITOR
-        string s = this.gameObject.name;
-        int found = s.IndexOf(" obj");
-        string roomname = s.Substring(0, found);
-        return Application.dataPath + "/CSV files/" + roomname + "/Object Position/" + this.gameObject.name +".csv";
+        //string s = this.gameObject.name;
+        //int found = s.IndexOf(" obj");
+        //string roomname = s.Substring(0, found);
+        return Application.dataPath + "/CSV files/Object Position/" + this.gameObject.name +".csv";
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
 #endif
