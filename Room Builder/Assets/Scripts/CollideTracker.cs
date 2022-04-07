@@ -208,9 +208,9 @@ public class CollideTracker : MonoBehaviour
 #if UNITY_EDITOR
         ObjectPosition g = FindObjectOfType<ObjectPosition>();
         string s = g.name;
-        int found = s.IndexOf(" obj");
-        string roomname = s.Substring(0, found);
-        return Application.dataPath + "/CSV files/" + roomname + "/Contact Data/" + name + ".csv";
+        //int found = s.IndexOf(" obj");
+        //string roomname = s.Substring(0, found);
+        return Application.dataPath + "/CSV files/" + s + "/Contact Data/" + name + ".csv";
 #else
         return Application.dataPath + "/"+"CurrentInfo.csv";
 #endif

@@ -88,9 +88,9 @@ public class PlayerTracker : MonoBehaviour
     {
         string filePath;
         if (isTpose)
-            filePath = getPath();
-        else
             filePath = getTposePath();
+        else
+            filePath = getPath();
 
         if (!File.Exists(filePath))
         {
@@ -139,9 +139,9 @@ public class PlayerTracker : MonoBehaviour
 #if UNITY_EDITOR
         ObjectPosition g = FindObjectOfType<ObjectPosition>();
         string s = g.name;
-        int found = s.IndexOf(" obj");
-        string roomname = s.Substring(0, found);
-        return Application.dataPath + "/CSV files/" + roomname + "/Player Data/" + name + ".csv";
+        //int found = s.IndexOf(" obj");
+        //string roomname = s.Substring(0, found);
+        return Application.dataPath + "/CSV files/" + s + "/Player Data/" + name + ".csv";
 
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
@@ -153,9 +153,9 @@ public class PlayerTracker : MonoBehaviour
 #if UNITY_EDITOR
         ObjectPosition g = FindObjectOfType<ObjectPosition>();
         string s = g.name;
-        int found = s.IndexOf(" obj");
-        string roomname = s.Substring(0, found);
-        return Application.dataPath + "/CSV files/" + roomname + "/Player Data/Tpose.csv";
+        //int found = s.IndexOf(" obj");
+        //string roomname = s.Substring(0, found);
+        return Application.dataPath + "/CSV files/" + s + "/Player Data/Tpose.csv";
 
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";

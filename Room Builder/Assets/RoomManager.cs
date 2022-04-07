@@ -24,7 +24,7 @@ public class RoomManager : MonoBehaviour
 
     public GameObject Player;
 
-    public Vector3 PlayerLocalPosition = new Vector3(3.0f, 0.0f, 3.0f);
+    public Vector3 PlayerLocalPosition = new Vector3(3.787f, 0.0f, 1.797f);
     // Start is called before the first frame update
     void Start()
     {

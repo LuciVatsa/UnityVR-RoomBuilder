@@ -866,6 +866,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toilet handler R
       objectReference: {fileID: 0}
+    - target: {fileID: 7708040133411348072, guid: 3df84379652aa364692d3393a58d7d00,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708040133411348072, guid: 3df84379652aa364692d3393a58d7d00,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.004
+      objectReference: {fileID: 0}
     - target: {fileID: 7708040133411348073, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -880,6 +890,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 10.937457
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708040133411348074, guid: 3df84379652aa364692d3393a58d7d00,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708040133411348074, guid: 3df84379652aa364692d3393a58d7d00,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3df84379652aa364692d3393a58d7d00, type: 3}
@@ -961,6 +981,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toilet handler L
       objectReference: {fileID: 0}
+    - target: {fileID: 7708040133411348072, guid: 3df84379652aa364692d3393a58d7d00,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708040133411348072, guid: 3df84379652aa364692d3393a58d7d00,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.004
+      objectReference: {fileID: 0}
     - target: {fileID: 7708040133411348073, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -975,6 +1005,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 10.397515
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708040133411348074, guid: 3df84379652aa364692d3393a58d7d00,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708040133411348074, guid: 3df84379652aa364692d3393a58d7d00,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3df84379652aa364692d3393a58d7d00, type: 3}
