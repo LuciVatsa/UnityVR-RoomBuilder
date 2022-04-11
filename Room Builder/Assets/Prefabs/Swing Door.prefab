@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad77666522338cf49ba83b80b25e6476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachForce: 200
+  attachForce: 20
   attachForceDamper: 0
   attachMode: 1
   attachmentFlags: 0
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad77666522338cf49ba83b80b25e6476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachForce: 200
+  attachForce: 20
   attachForceDamper: 0
   attachMode: 1
   attachmentFlags: 0
@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad77666522338cf49ba83b80b25e6476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachForce: 200
+  attachForce: 20
   attachForceDamper: 0
   attachMode: 1
   attachmentFlags: 0
@@ -860,7 +860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad77666522338cf49ba83b80b25e6476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachForce: 200
+  attachForce: 20
   attachForceDamper: 0
   attachMode: 1
   attachmentFlags: 0
