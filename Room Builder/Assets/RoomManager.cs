@@ -25,6 +25,9 @@ public class RoomManager : MonoBehaviour
     public GameObject Player;
 
     public Vector3 PlayerLocalPosition = new Vector3(3.787f, 0.0f, 1.797f);
+    public int SubjectId;
+    public int RoomId;
+    public int TrialId;
     // Start is called before the first frame update
     void Start()
     {

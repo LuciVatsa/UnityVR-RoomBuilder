@@ -2070,7 +2070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1965670500717106937}
   m_Layer: 0
-  m_Name: Bed-TR-T)
+  m_Name: Bed-TR-T
   m_TagString: ObjectPosition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

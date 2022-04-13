@@ -139,9 +139,12 @@ public class PlayerTracker : MonoBehaviour
 #if UNITY_EDITOR
         ObjectPosition g = FindObjectOfType<ObjectPosition>();
         string s = g.name;
+        RoomManager rm = FindObjectOfType<RoomManager>();
+        string hierarchyName = "s" + rm.SubjectId.ToString() + "_r" + rm.RoomId.ToString() + "_t" + rm.TrialId.ToString() + "_" + name;
+        string folder = "s" + rm.SubjectId.ToString() + "/r" + rm.RoomId.ToString() + "/t" + rm.TrialId.ToString();
         //int found = s.IndexOf(" obj");
         //string roomname = s.Substring(0, found);
-        return Application.dataPath + "/CSV files/" + s + "/Player Data/" + name + ".csv";
+        return Application.dataPath + "/CSV files/" + s + "/Player Data/" + hierarchyName + ".csv";
 
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
@@ -153,8 +156,9 @@ public class PlayerTracker : MonoBehaviour
 #if UNITY_EDITOR
         ObjectPosition g = FindObjectOfType<ObjectPosition>();
         string s = g.name;
-        //int found = s.IndexOf(" obj");
-        //string roomname = s.Substring(0, found);
+        RoomManager rm = FindObjectOfType<RoomManager>();
+        string hierarchyName = "s" + rm.SubjectId.ToString() + "_r" + rm.RoomId.ToString() + "_t" + rm.TrialId.ToString() + "_" + name;
+        string folder = "s" + rm.SubjectId.ToString() + "/r" + rm.RoomId.ToString() + "/t" + rm.TrialId.ToString();
         return Application.dataPath + "/CSV files/" + s + "/Player Data/Tpose.csv";
 
 #else
