@@ -19,7 +19,7 @@ public class PlayerTracker : MonoBehaviour
 
     /*search "form action" in after right click and select "view page source"*/
     private string BASE_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLScV0zZv-NrzbAZZDE9ldUbeDckJzTrhgxTMRGZg5usuf5EtGg/formResponse";
-
+    public bool IvPort;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,9 +56,22 @@ public class PlayerTracker : MonoBehaviour
         if (Time.time > nextActionTime)
         {
             nextActionTime += period;
-            float x = gameObject.transform.localPosition.x + parentX;
-            float y = gameObject.transform.localPosition.y + parentY;
-            float z = gameObject.transform.localPosition.z + parentZ;
+            float x;
+            float y;
+            float z;
+            if (IvPort)
+            {
+                x = gameObject.transform.localPosition.x;
+                y = gameObject.transform.localPosition.y;
+                z = gameObject.transform.localPosition.z;
+            }
+            else
+            {
+                x = gameObject.transform.localPosition.x + parentX;
+                y = gameObject.transform.localPosition.y + parentY;
+                z = gameObject.transform.localPosition.z + parentZ;
+            }
+            
             string rx = gameObject.transform.rotation.eulerAngles.x.ToString();
             string ry = gameObject.transform.rotation.eulerAngles.y.ToString();
             string rz = gameObject.transform.rotation.eulerAngles.z.ToString();
@@ -69,7 +82,7 @@ public class PlayerTracker : MonoBehaviour
             StartCoroutine(WriteToFile(output, false));
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T) && !IvPort)
         {
             Debug.Log("SAVE T POSE !!!");
             float x = gameObject.transform.localPosition.x + parentX;
@@ -137,14 +150,11 @@ public class PlayerTracker : MonoBehaviour
     private string getPath()
     {
 #if UNITY_EDITOR
-        ObjectPosition g = FindObjectOfType<ObjectPosition>();
-        string s = g.name;
         RoomManager rm = FindObjectOfType<RoomManager>();
-        string hierarchyName = "s" + rm.SubjectId.ToString() + "_r" + rm.RoomId.ToString() + "_t" + rm.TrialId.ToString() + "_" + name;
-        string folder = "s" + rm.SubjectId.ToString() + "/r" + rm.RoomId.ToString() + "/t" + rm.TrialId.ToString();
-        //int found = s.IndexOf(" obj");
-        //string roomname = s.Substring(0, found);
-        return Application.dataPath + "/CSV files/" + s + "/Player Data/" + hierarchyName + ".csv";
+        Tuple<string, string> path = rm.GetPath();
+        string m_path = path.Item1 + "/Player Data/";
+        Directory.CreateDirectory(m_path);
+        return m_path + path.Item2 + name + ".csv";
 
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
@@ -154,12 +164,12 @@ public class PlayerTracker : MonoBehaviour
     private string getTposePath()
     {
 #if UNITY_EDITOR
-        ObjectPosition g = FindObjectOfType<ObjectPosition>();
-        string s = g.name;
+        
         RoomManager rm = FindObjectOfType<RoomManager>();
-        string hierarchyName = "s" + rm.SubjectId.ToString() + "_r" + rm.RoomId.ToString() + "_t" + rm.TrialId.ToString() + "_" + name;
-        string folder = "s" + rm.SubjectId.ToString() + "/r" + rm.RoomId.ToString() + "/t" + rm.TrialId.ToString();
-        return Application.dataPath + "/CSV files/" + s + "/Player Data/Tpose.csv";
+        Tuple<string, string> path = rm.GetPath();
+        string m_path = path.Item1 + "/Player Data/";
+        Directory.CreateDirectory(m_path);
+        return m_path + path.Item2 + "Tpose.csv";
 
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";

@@ -3482,6 +3482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4880603669606125338}
   - component: {fileID: 7452873125894657545}
+  - component: {fileID: 1934352577}
   m_Layer: 0
   m_Name: 'IV '
   m_TagString: Untagged
@@ -3518,8 +3519,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c2cf88f7c59f4c8cf5d3812568143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: -1
+  index: 9
   origin: {fileID: 0}
+--- !u!114 &1934352577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8493853722231815433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7ee60d0db3331488e5a1d72f6cee13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerParent: {fileID: 0}
+  IvPort: 1
 --- !u!1 &8624815502110609520
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,9 @@ public class MenuManager : Editor
 
             if (go.GetComponent<ObjectPosition> () != null)
                 go.GetComponent<ObjectPosition>().enabled = true;
+
+            if (go.GetComponent<BodyCollideTracker>() != null)
+                go.GetComponent<BodyCollideTracker>().enabled = true;
         }
 
         if (head.GetComponent<PlayerTracker>() != null)
@@ -46,6 +49,9 @@ public class MenuManager : Editor
 
             if (go.GetComponent<ObjectPosition>() != null)
                 go.GetComponent<ObjectPosition>().enabled = false;
+
+            if (go.GetComponent<BodyCollideTracker>() != null)
+                go.GetComponent<BodyCollideTracker>().enabled = false;
         }
 
         if (head.GetComponent<PlayerTracker>() != null)

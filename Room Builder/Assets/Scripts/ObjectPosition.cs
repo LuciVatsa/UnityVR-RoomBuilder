@@ -132,7 +132,13 @@ public class ObjectPosition : MonoBehaviour
         //string s = this.gameObject.name;
         //int found = s.IndexOf(" obj");
         //string roomname = s.Substring(0, found);
-        return Application.dataPath + "/CSV files/" + this.gameObject.name + "/Object Position /" + this.gameObject.name +" obj points.csv";
+        RoomManager rm = FindObjectOfType<RoomManager>();
+        System.Tuple<string, string> path = rm.GetPath();
+        string m_path = path.Item1 + "/Object Position/";
+        Directory.CreateDirectory(m_path);
+        return m_path + path.Item2 + "obj points.csv";
+
+        //return Application.dataPath + "/CSV files/" + this.gameObject.name + "/Object Position /" + this.gameObject.name +" obj points.csv";
 #else
       return Application.dataPath + "/"+"CurrentInfo.csv";
 #endif

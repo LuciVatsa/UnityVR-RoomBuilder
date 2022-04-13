@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,8 +27,8 @@ public class RoomManager : MonoBehaviour
 
     public Vector3 PlayerLocalPosition = new Vector3(3.787f, 0.0f, 1.797f);
     public int SubjectId;
-    public int RoomId;
-    public int TrialId;
+    //public int RoomId;
+    public string TrialId;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,5 +39,15 @@ public class RoomManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public Tuple<string, string> GetPath()
+    {
+        ObjectPosition g = FindObjectOfType<ObjectPosition>();
+        string roomname = g.name;
+        string folder = Application.dataPath + "/CSV files/" + "S" + SubjectId.ToString() + "/" + roomname.ToString() + "/" + TrialId;
+        string hierarchyName = "S" + SubjectId.ToString() + "_" + roomname.ToString() + "_" + TrialId + "_";
+        
+        return new Tuple<string, string>(folder, hierarchyName);
     }
 }

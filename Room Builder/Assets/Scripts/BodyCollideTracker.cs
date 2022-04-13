@@ -32,18 +32,18 @@ public class BodyCollideTracker : MonoBehaviour
     {
         endTime = Time.time;
 
-        string output = this.name + "," + collision.ToString() + "," + startTime.ToString() + "," + endTime.ToString();
+        string output = this.name + "," + collision.collider.name + "," + startTime.ToString() + "," + endTime.ToString();
         StartCoroutine(WriteToFile(output));
     }
 
     private string getPath()
     {
 #if UNITY_EDITOR
-        ObjectPosition g = FindObjectOfType<ObjectPosition>();
-        string s = g.name;
-        int found = s.IndexOf(" obj");
-        string roomname = s.Substring(0, found);
-        return Application.dataPath + "/CSV files/" + roomname + "/Contact Data/" + name + ".csv";
+        RoomManager rm = FindObjectOfType<RoomManager>();
+        System.Tuple<string, string> path = rm.GetPath();
+        string m_path = path.Item1 + "/Contact Data/";
+        Directory.CreateDirectory(m_path);
+        return m_path + path.Item2 + name + ".csv";
 #else
         return Application.dataPath + "/"+"CurrentInfo.csv";
 #endif
