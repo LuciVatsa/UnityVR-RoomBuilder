@@ -27,12 +27,15 @@ public class RoomManager : MonoBehaviour
 
     public Vector3 PlayerLocalPosition = new Vector3(3.787f, 0.0f, 1.797f);
     public int SubjectId;
-    //public int RoomId;
-    public string TrialId;
+    public int SetNumber;
+    public enum IVenum { IV, NoIV };
+    public IVenum IV;
+    public enum SideEnum { Left, Right };
+    public SideEnum side;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -45,9 +48,9 @@ public class RoomManager : MonoBehaviour
     {
         ObjectPosition g = FindObjectOfType<ObjectPosition>();
         string roomname = g.name;
-        string folder = Application.dataPath + "/CSV files/" + "S" + SubjectId.ToString() + "/" + roomname.ToString() + "/" + TrialId;
-        string hierarchyName = "S" + SubjectId.ToString() + "_" + roomname.ToString() + "_" + TrialId + "_";
-        
+        string folder = Application.dataPath + "/CSV files/" + "Sub" + SubjectId.ToString() + "/Set" + SetNumber.ToString() + "/" + roomname.ToString() + "/" + IV.ToString() + "/" + side.ToString();
+        string hierarchyName = "Sub" + SubjectId.ToString() + "_Set" + SetNumber.ToString() + "_" + roomname.ToString() + "_" + IV.ToString() + "_" + side.ToString() + "_";
+
         return new Tuple<string, string>(folder, hierarchyName);
     }
 }

@@ -128,7 +128,7 @@ public class ObjectPosition : MonoBehaviour
 
     private string getPath()
     {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         //string s = this.gameObject.name;
         //int found = s.IndexOf(" obj");
         //string roomname = s.Substring(0, found);
@@ -139,9 +139,9 @@ public class ObjectPosition : MonoBehaviour
         return m_path + path.Item2 + "obj points.csv";
 
         //return Application.dataPath + "/CSV files/" + this.gameObject.name + "/Object Position /" + this.gameObject.name +" obj points.csv";
-#else
-      return Application.dataPath + "/"+"CurrentInfo.csv";
-#endif
+//#else
+    //  return Application.dataPath + "/"+"CurrentInfo.csv";
+//#endif
     }
 
     IEnumerator Post(string name, string px, string pz)

@@ -61,9 +61,9 @@ public class PlayerTracker : MonoBehaviour
             float z;
             if (IvPort)
             {
-                x = gameObject.transform.localPosition.x;
-                y = gameObject.transform.localPosition.y;
-                z = gameObject.transform.localPosition.z;
+                x = gameObject.transform.localPosition.x + playerParent.transform.localPosition.x;
+                y = gameObject.transform.localPosition.y + playerParent.transform.localPosition.y;
+                z = gameObject.transform.localPosition.z + playerParent.transform.localPosition.z;
             }
             else
             {
@@ -149,21 +149,21 @@ public class PlayerTracker : MonoBehaviour
 
     private string getPath()
     {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         RoomManager rm = FindObjectOfType<RoomManager>();
         Tuple<string, string> path = rm.GetPath();
         string m_path = path.Item1 + "/Player Data/";
         Directory.CreateDirectory(m_path);
         return m_path + path.Item2 + name + ".csv";
 
-#else
-      return Application.dataPath + "/"+"CurrentInfo.csv";
-#endif
+//#else
+//      return Application.dataPath + "/"+"CurrentInfo.csv";
+//#endif
     }
 
     private string getTposePath()
     {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         
         RoomManager rm = FindObjectOfType<RoomManager>();
         Tuple<string, string> path = rm.GetPath();
@@ -171,9 +171,9 @@ public class PlayerTracker : MonoBehaviour
         Directory.CreateDirectory(m_path);
         return m_path + path.Item2 + "Tpose.csv";
 
-#else
-      return Application.dataPath + "/"+"CurrentInfo.csv";
-#endif
+//#else
+//      return Application.dataPath + "/"+"CurrentInfo.csv";
+//#endif
     }
 
     IEnumerator Post(string name, string time, string px, string py, string pz, string rx, string ry, string rz)

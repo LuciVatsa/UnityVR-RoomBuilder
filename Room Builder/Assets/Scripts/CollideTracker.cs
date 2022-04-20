@@ -205,15 +205,15 @@ public class CollideTracker : MonoBehaviour
 
     private string getPath()
     {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         RoomManager rm = FindObjectOfType<RoomManager>();
         System.Tuple<string, string> path = rm.GetPath();
         string m_path = path.Item1 + "/Contact Data/";
         Directory.CreateDirectory(m_path);
         return m_path + path.Item2 + name + ".csv";
-#else
-        return Application.dataPath + "/"+"CurrentInfo.csv";
-#endif
+//#else
+//        return Application.dataPath + "/"+"CurrentInfo.csv";
+//#endif
     }
 
     int FindIndex(Collision collision)
