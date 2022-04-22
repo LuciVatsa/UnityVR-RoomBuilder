@@ -24,6 +24,7 @@ public class RoomManager : MonoBehaviour
     public GameObject Footwall2SwingDoorPoints;
 
     public GameObject Player;
+    public GameObject IV_object;
 
     public Vector3 PlayerLocalPosition = new Vector3(3.787f, 0.0f, 1.797f);
     public int SubjectId;
@@ -36,6 +37,15 @@ public class RoomManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (IV == IVenum.IV)
+        {
+            IV_object.SetActive(true);
+        }
+        else
+        {
+            IV_object.SetActive(false);
+        }
+
     }
 
     // Update is called once per frame
