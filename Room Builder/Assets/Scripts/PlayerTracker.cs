@@ -11,8 +11,11 @@ public class PlayerTracker : MonoBehaviour
     private List<string[]> rowData = new List<string[]>();
     float preX, preZ;
     double distance = 0.0f;
-    public GameObject playerParent;
-    float parentX, parentY, parentZ;
+    
+    [SerializeField]
+    Transform origin;
+
+    float originX, originY, originZ;
 
     private float nextActionTime = 0.0f;
     private float period = 0.5f;
@@ -23,10 +26,11 @@ public class PlayerTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        origin = FindObjectOfType<ObjectPosition>().origin;
         //Save();
-        parentX = playerParent.transform.localPosition.x;
-        parentY = playerParent.transform.localPosition.y;
-        parentZ = playerParent.transform.localPosition.z;
+        originX = origin.position.x;
+        originY = origin.position.y;
+        originZ = origin.position.z;
 
         string filePath = getPath();
         if (File.Exists(filePath))
@@ -59,19 +63,23 @@ public class PlayerTracker : MonoBehaviour
             float x;
             float y;
             float z;
-            if (IvPort)
-            {
-                x = gameObject.transform.localPosition.x + playerParent.transform.localPosition.x;
-                y = gameObject.transform.localPosition.y + playerParent.transform.localPosition.y;
-                z = gameObject.transform.localPosition.z + playerParent.transform.localPosition.z;
-            }
-            else
-            {
-                x = gameObject.transform.localPosition.x + parentX;
-                y = gameObject.transform.localPosition.y + parentY;
-                z = gameObject.transform.localPosition.z + parentZ;
-            }
-            
+            //if (IvPort)
+            //{
+            //    x = gameObject.transform.position.x - originX;
+            //    y = gameObject.transform.position.y - originY;
+            //    z = gameObject.transform.position.z - originZ;
+            //}
+            //else
+            //{
+            //    x = gameObject.transform.localPosition.x + parentX;
+            //    y = gameObject.transform.localPosition.y + parentY;
+            //    z = gameObject.transform.localPosition.z + parentZ;
+            //}
+
+            x = gameObject.transform.position.x - originX;
+            y = gameObject.transform.position.y - originY;
+            z = gameObject.transform.position.z - originZ;
+
             string rx = gameObject.transform.rotation.eulerAngles.x.ToString();
             string ry = gameObject.transform.rotation.eulerAngles.y.ToString();
             string rz = gameObject.transform.rotation.eulerAngles.z.ToString();
@@ -85,9 +93,9 @@ public class PlayerTracker : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T) && !IvPort)
         {
             Debug.Log("SAVE T POSE !!!");
-            float x = gameObject.transform.localPosition.x + parentX;
-            float y = gameObject.transform.localPosition.y + parentY;
-            float z = gameObject.transform.localPosition.z + parentZ;
+            float x = gameObject.transform.position.x - originX;
+            float y = gameObject.transform.position.y - originY;
+            float z = gameObject.transform.position.z - originZ;
             string rx = gameObject.transform.rotation.eulerAngles.x.ToString();
             string ry = gameObject.transform.rotation.eulerAngles.y.ToString();
             string rz = gameObject.transform.rotation.eulerAngles.z.ToString();

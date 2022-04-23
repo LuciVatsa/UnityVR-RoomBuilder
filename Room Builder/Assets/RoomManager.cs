@@ -27,6 +27,7 @@ public class RoomManager : MonoBehaviour
     public GameObject IV_object;
 
     public Vector3 PlayerLocalPosition = new Vector3(3.787f, 0.0f, 1.797f);
+    public Vector3 PlayerLocalPositionHeadwall2 = new Vector3(3.787f, 0.0f, 1.797f);
     public int SubjectId;
     public int SetNumber;
     public enum IVenum { IV, NoIV };

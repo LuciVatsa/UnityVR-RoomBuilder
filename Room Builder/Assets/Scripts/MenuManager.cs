@@ -138,7 +138,7 @@ public class MenuManager : Editor
         myObject.Footwall2SwingDoorPoints.SetActive(false);
 
         myObject.Player.transform.SetParent(myObject.Headwall2SlideDoorPoints.transform);
-        myObject.Player.transform.localPosition = myObject.PlayerLocalPosition;
+        myObject.Player.transform.localPosition = myObject.PlayerLocalPositionHeadwall2;
     }
 
     [MenuItem("VR/Room/Headwall-2 Swing Door")]
@@ -165,7 +165,7 @@ public class MenuManager : Editor
         myObject.Footwall2SwingDoorPoints.SetActive(false);
 
         myObject.Player.transform.SetParent(myObject.Headwall2SwingDoorPoints.transform);
-        myObject.Player.transform.localPosition = myObject.PlayerLocalPosition;
+        myObject.Player.transform.localPosition = myObject.PlayerLocalPositionHeadwall2;
     }
 
     [MenuItem("VR/Room/Footwall Slide Door")]
