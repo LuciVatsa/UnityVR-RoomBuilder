@@ -524,7 +524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6255460326307364554}
   m_LocalRotation: {x: 0.68070924, y: 0.19140281, z: -0.19140281, w: 0.6807091}
-  m_LocalPosition: {x: -2.512, y: 2.51, z: -3.4292}
+  m_LocalPosition: {x: -2.566, y: 2.51, z: -3.481}
   m_LocalScale: {x: 0.049999997, y: 0.040000007, z: 0.030000003}
   m_Children: []
   m_Father: {fileID: 7696834207003468753}
@@ -5427,22 +5427,22 @@ PrefabInstance:
     - target: {fileID: 6254038423429548239, guid: f90a93b992504704fb4f25d09f3ecb2e,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 4.274611
+      value: 4.3242245
       objectReference: {fileID: 0}
     - target: {fileID: 6254038423429548239, guid: f90a93b992504704fb4f25d09f3ecb2e,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -6.5690374
+      value: -6.602591
       objectReference: {fileID: 0}
     - target: {fileID: 6254038424216429353, guid: f90a93b992504704fb4f25d09f3ecb2e,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 3.6120613
+      value: 3.6784477
       objectReference: {fileID: 0}
     - target: {fileID: 6254038424216429353, guid: f90a93b992504704fb4f25d09f3ecb2e,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -6.1387725
+      value: -6.183219
       objectReference: {fileID: 0}
     - target: {fileID: 8743514716359146751, guid: f90a93b992504704fb4f25d09f3ecb2e,
         type: 3}
@@ -5502,12 +5502,12 @@ PrefabInstance:
     - target: {fileID: 8744439749135913227, guid: f90a93b992504704fb4f25d09f3ecb2e,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 4.061485
+      value: 4.119485
       objectReference: {fileID: 0}
     - target: {fileID: 8744439749135913227, guid: f90a93b992504704fb4f25d09f3ecb2e,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -6.1646276
+      value: -6.2036276
       objectReference: {fileID: 0}
     - target: {fileID: 8745251279819170321, guid: f90a93b992504704fb4f25d09f3ecb2e,
         type: 3}

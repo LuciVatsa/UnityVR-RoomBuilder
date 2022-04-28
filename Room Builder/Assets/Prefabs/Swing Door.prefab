@@ -406,7 +406,7 @@ HingeJoint:
   m_UseLimits: 1
   m_Limits:
     min: 0
-    max: 110
+    max: 120
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd7ee60d0db3331488e5a1d72f6cee13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerParent: {fileID: 3928637021775633557}
+  origin: {fileID: 0}
   IvPort: 1
 --- !u!1001 &4856402651914641820
 PrefabInstance:
@@ -157,17 +157,11 @@ PrefabInstance:
     - target: {fileID: 8493853722231815433, guid: 352abb25ff84f854480db3c3292be70e,
         type: 3}
       propertyPath: m_Name
-      value: 'IV '
+      value: IV  backup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1934352577, guid: 352abb25ff84f854480db3c3292be70e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 352abb25ff84f854480db3c3292be70e, type: 3}
---- !u!1 &3928637021775633557 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8493853722231815433, guid: 352abb25ff84f854480db3c3292be70e,
-    type: 3}
-  m_PrefabInstance: {fileID: 4856402651914641820}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4771575035376705143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 98342853807390699, guid: 352abb25ff84f854480db3c3292be70e,
