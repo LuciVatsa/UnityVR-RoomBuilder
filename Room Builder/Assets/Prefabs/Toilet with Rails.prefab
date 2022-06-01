@@ -1112,7 +1112,7 @@ PrefabInstance:
     - target: {fileID: 7708040133411348070, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
       propertyPath: m_Name
-      value: Toilet handler R
+      value: Toilet grab bar R
       objectReference: {fileID: 0}
     - target: {fileID: 7708040133411348072, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
@@ -1227,7 +1227,7 @@ PrefabInstance:
     - target: {fileID: 7708040133411348070, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
       propertyPath: m_Name
-      value: Toilet handler L
+      value: Toilet grab bar L
       objectReference: {fileID: 0}
     - target: {fileID: 7708040133411348072, guid: 3df84379652aa364692d3393a58d7d00,
         type: 3}
