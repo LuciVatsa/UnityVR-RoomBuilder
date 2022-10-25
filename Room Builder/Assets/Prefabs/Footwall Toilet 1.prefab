@@ -8117,7 +8117,7 @@ PrefabInstance:
     - target: {fileID: 1618484842131117682, guid: 2d6947a7506541b4d89bd8e12df16d0b,
         type: 3}
       propertyPath: m_Limits.max
-      value: 145
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1618484842131117682, guid: 2d6947a7506541b4d89bd8e12df16d0b,
         type: 3}

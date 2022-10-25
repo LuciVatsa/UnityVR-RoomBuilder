@@ -28,8 +28,8 @@ public class RoomManager : MonoBehaviour
 
     public Vector3 PlayerLocalPositionFootwall = new Vector3(3.787f, 0.0f, 1.797f);
     public Vector3 PlayerLocalPositionHeadwall = new Vector3(3.787f, 0.0f, 1.797f);
-    public int SubjectId;
-    public int SetNumber;
+    public string SubjectId;
+    public string SetNumber;
     public enum IVenum { IV, NoIV };
     public IVenum IV;
     public enum SideEnum { Left, Right };
