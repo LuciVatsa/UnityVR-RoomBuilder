@@ -35,6 +35,8 @@ public class RoomManager : MonoBehaviour
     public enum SideEnum { Left, Right };
     public SideEnum side;
 
+    public float samplingRate = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {

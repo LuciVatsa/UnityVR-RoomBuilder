@@ -43,6 +43,8 @@ public class PlayerTracker : MonoBehaviour
         string header = "Object Name,Time,PosX,PosY,PosZ,RotX,RotY,RotZ";
         StartCoroutine(WriteToFile(header, false));
         StartCoroutine(WriteToFile(header, true));
+
+        period = FindObjectOfType<RoomManager>().samplingRate;
     }
     void Save()
     {
@@ -57,9 +59,9 @@ public class PlayerTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > nextActionTime)
-        {
-            nextActionTime += period;
+        //if (Time.time > nextActionTime)
+        //{
+           // nextActionTime += period;
             float x;
             float y;
             float z;
@@ -88,18 +90,18 @@ public class PlayerTracker : MonoBehaviour
 
             string output = name + "," + Time.time.ToString() + "," + x.ToString() + "," + y.ToString() + "," + z.ToString() + "," + rx + "," + ry + "," + rz;
             StartCoroutine(WriteToFile(output, false));
-        }
+        //}
 
         if (Input.GetKeyDown(KeyCode.T) && !IvPort)
         {
             Debug.Log("SAVE T POSE !!!");
-            float x = gameObject.transform.position.x - originX;
-            float y = gameObject.transform.position.y - originY;
-            float z = gameObject.transform.position.z - originZ;
-            string rx = gameObject.transform.rotation.eulerAngles.x.ToString();
-            string ry = gameObject.transform.rotation.eulerAngles.y.ToString();
-            string rz = gameObject.transform.rotation.eulerAngles.z.ToString();
-            string output = name + "," + Time.time.ToString() + "," + x.ToString() + "," + y.ToString() + "," + z.ToString() + "," + rx + "," + ry + "," + rz;
+            x = gameObject.transform.position.x - originX;
+            y = gameObject.transform.position.y - originY;
+            z = gameObject.transform.position.z - originZ;
+            rx = gameObject.transform.rotation.eulerAngles.x.ToString();
+            ry = gameObject.transform.rotation.eulerAngles.y.ToString();
+            rz = gameObject.transform.rotation.eulerAngles.z.ToString();
+            output = name + "," + Time.time.ToString() + "," + x.ToString() + "," + y.ToString() + "," + z.ToString() + "," + rx + "," + ry + "," + rz;
             StartCoroutine(WriteToFile(output, true));
         }
 
