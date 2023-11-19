@@ -1,45 +1,30 @@
 # UnityVR-RoomBuilder
-VR Hospital Rooms with Enhanced Immersion, Fall Risk Evaluation, and Procedural Room Generation
-Overview:
+Virtual Reality Enhanced Hospital Room Design for Fall Risk Reduction
+Project Description
 
-This GitHub project introduces Virtual Reality (VR) hospital rooms designed for enhanced immersion, safety assessment, and procedural room generation. Leveraging Unity, Data-Oriented Technology Stack (DOTS), and Entity Component System (ECS), the system collects position and orientation data to calculate metrics such as step length, height, turning angles, etc. These metrics are utilized for fall risk evaluation. Additionally, the project features a procedural room generator that optimizes room designs around fall risk, step length, and the number of turns made by a patient.
-Key Features:
+This pioneering project focuses on the design and creation of virtual reality (VR) hospital rooms, aimed at enhancing patient safety and reducing fall risks. By employing advanced technological solutions, the project offers a novel approach to hospital room design, prioritizing both functionality and patient safety.
+Key Features
 
-    Immersive VR Hospital Rooms:
-        Creation of virtual hospital rooms with enhanced immersion, featuring an innovative system design to add props and elements for a realistic healthcare VR experience.
+    Immersive VR Hospital Rooms: The project involves the creation of highly realistic VR hospital rooms. These environments are not only visually immersive but also interactive, providing a realistic simulation of hospital settings with added props for enhanced realism.
 
-    Unity DOTS and ECS Integration:
-        Utilization of Unity DOTS and ECS for efficient data collection and management of position and orientation information.
-        Calculation of metrics like step length, height, and turning angles using DOTS to evaluate fall risk.
+    Data Collection with Unity DOTS and ECS: Utilizing Unity's Data-Oriented Technology Stack (DOTS) and Entity Component System (ECS), the project efficiently gathers position and orientation data on subjects. This data is crucial in calculating metrics like step length, height, and turning angles, which are key indicators of fall risk.
 
-    Fall Risk Evaluation:
-        Implementation of algorithms to evaluate fall risk based on collected metrics in real-time.
-        Insights into user movements within VR hospital rooms to identify and prevent potential fall risks.
+    Fall Risk Evaluation Algorithms: The system evaluates fall risks by analyzing the collected data. This includes assessing step length, height differences, and turning angles, all of which are critical factors in determining the likelihood of falls in hospital settings.
 
-    Collision and Proximity Detection:
-        Design and implementation of collision detection algorithms to ensure patient safety within the virtual environment.
-        Proximity detection features to prevent collisions with virtual objects and surroundings.
+    Collision and Proximity Detection for Patient Safety: Advanced collision and proximity detection algorithms have been developed and integrated into the VR rooms. These algorithms play a vital role in ensuring patient safety by preventing potential collisions and identifying risky proximities within the room layout.
 
-    Procedural Room Generator:
-        Development of a procedural room generator that utilizes fall risk, step length, and turn metrics to create potential room designs.
-        Optimization of room layouts to improve fall risk, taking into account patient movement patterns and safety considerations.
+    Procedural Room Generator: A standout feature of the project is the procedural room generator. This innovative tool uses the metrics collected to design potential room layouts. Optimizing around factors such as fall risk, step length, and the number of turns a patient makes, helps in creating safer and more efficient hospital room designs.
 
-Value in Healthcare:
-Personalized Room Designs:
+Value in Healthcare
 
-    The procedural room generator enhances patient safety by creating room designs tailored to individual movement patterns.
-    Optimization around fall risk, step length, and turns contributes to a safer and more accommodating healthcare environment.
+    Innovative Approach to Room Design: The project introduces a new paradigm in hospital room design, where safety and efficiency are enhanced through VR simulations and data-driven insights.
+    Reduction in Fall Risks: By focusing on key metrics associated with falls, the project contributes significantly to reducing fall risks in hospital settings, enhancing patient safety.
+    Enhanced Patient Experience: The immersive VR environment not only aids in room design but can also be used for patient education and acclimatization, thereby improving the overall patient experience in hospitals.
+    Cost-Effective and Scalable Solutions: Virtual simulations allow for multiple iterations and testing of room designs without the need for physical restructuring, making it a cost-effective solution for hospitals.
 
-Efficient Rehabilitation Planning:
+Conclusion
 
-    Healthcare professionals can use fall risk metrics and procedural room generation for efficient rehabilitation planning.
-    Tailored room designs enable targeted interventions and exercises based on individual patient needs.
-
-Enhanced Training Scenarios:
-
-    The procedural room generator enriches training scenarios for healthcare providers by creating diverse and realistic room layouts.
-    Healthcare professionals can train in environments that simulate various patient conditions and movement patterns.
-
+This project represents a significant advancement in hospital room design and patient safety. By leveraging VR technology, data analysis, and innovative algorithms, it provides a comprehensive solution to reduce fall risks in hospital environments. This approach has the potential to transform how hospital interiors are designed, prioritizing patient safety and efficiency in a cost-effective and scalable manner.
 How to Contribute:
 
     Contributions from VR developers, healthcare professionals, and researchers are welcome.
